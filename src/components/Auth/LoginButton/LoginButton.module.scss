@@ -1,0 +1,31 @@
+.login {
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: color 0.3s ease-out 0s;
+    &:hover {
+      color: var(--accent);
+    }
+}
+
+.userInfo {
+  position: relative;
+  cursor: pointer;
+}
+
+.userEmail {
+  transition: color 0.3s ease-in-out 0s;
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+.logout {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #fff;
+  transition: color 0.3s ease-in-out 0s;
+  &:hover {
+    color: var(--accent);
+  }
+}

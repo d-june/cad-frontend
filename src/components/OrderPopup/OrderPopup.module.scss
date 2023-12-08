@@ -1,0 +1,121 @@
+.order {
+  
+}
+
+.orderContent {
+    position: relative;
+}
+
+
+.orderForm {
+
+}
+
+.orderTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.orderClose {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out 0s;
+    &:hover {
+        color: var(--accent);
+    }
+}
+
+.orderInputs {
+    margin-bottom: 20px;
+}
+
+.orderInput {
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+.orderTotal {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.orderTotalList {
+
+}
+
+.orderTotalItems {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.orderText {
+    font-size: 12px;
+}
+
+.orderRadioButtons {
+    margin-bottom: 20px;
+    label {
+        
+        span {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.orderDelivery {
+    margin-bottom: 20px;
+}
+
+.orderTotalPrice {
+    margin-bottom: 40px;
+    span {
+        font-weight: bold;
+        color: var(--accent);
+    }
+}
+
+.orderSubmit {
+    width: 100%;
+}
+
+.orderSuccess {
+    background-color: #0e7962;
+    color: #fff;
+}
+
+.orderSuccessClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out 0s;
+    &:hover {
+        color: var(--dark);
+    }
+}
+
+.orderSuccessBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    position: relative;
+}
+
+.orderSuccessText {
+    font-size: 16px;
+}
+
+.orderSuccessIcon {
+    font-size: 80px;
+}
+

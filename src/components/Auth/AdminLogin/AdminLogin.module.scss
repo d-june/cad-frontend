@@ -1,0 +1,8 @@
+.authLogin {
+    :global(.MuiBackdrop-root) {
+        background-color: var(--dark);
+    }
+    button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,44 @@
+.navigation {
+    display: flex;
+    .navigationItem {
+      transition: color 0.3s ease-out 0s;
+      &:hover {
+        color: var(--accent);
+      }
+        a {
+          padding: 20px;
+          text-transform: uppercase;
+          &:last-child {
+            @media(max-width: 800px) {
+              padding-right: 0px;
+            }
+          }
+        
+        }
+      }
+      .active {
+        li {
+          color: var(--accent);
+        }
+      }
+  }
+
+  .navigationColumn {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 60px;
+    row-gap: 10px;
+  
+
+    a {
+      @media(max-width: 750px) {
+        padding-left: 0 !important;
+      }
+    }
+  
+    @media(max-width: 750px) {
+      grid-template-columns: 1fr;
+    }
+  
+    
+  }

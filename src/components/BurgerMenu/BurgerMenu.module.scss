@@ -1,0 +1,120 @@
+.burgerMenu {
+    cursor: pointer;
+    position: relative;
+    svg {
+        font-size: 30px;
+    }
+}
+
+.burgerNavigation {
+  position: absolute;
+  top: 0%;
+  right: -100vw;
+  margin-top: 30px;
+  padding: 10px 20px;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  background-color: var(--white);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out 0s;
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px;
+   
+}
+li {
+    text-align: right;
+    padding: 8px 0;
+    a {
+        padding: 8px 0 !important;
+    }
+}
+
+.burgerPhone {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+}
+
+.burgerNavigationVisible {
+    top: 0;
+    right: -20px;
+    opacity: 1;
+  visibility: visible;
+   
+
+}
+
+
+  
+    .burgerBtn {
+      z-index: 15;
+      display: block;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+      justify-self: flex-end;
+      position: relative;
+  
+      span,
+      &::before,
+      &::after {
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease 0s;
+        background-color: var(--dark);
+      }
+  
+      &::before,
+      &::after {
+        content: "";
+      }
+  
+      &::before {
+        top: 0;
+      }
+  
+      &::after {
+        bottom: 0;
+      }
+  
+      span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+      }
+  
+      &.sidebarOpen {
+  
+        span {
+          transform: scale(0) translate(0px, -50%);
+
+        }
+  
+        &::before {
+          top: 50%;
+          transform: rotate(-45deg) translate(0px, -50%);
+      
+        }
+  
+        &::after {
+          bottom: 50%;
+          transform: rotate(45deg) translate(0px, 50%);
+ 
+        }
+      }
+  
+    }
+
+  
+  

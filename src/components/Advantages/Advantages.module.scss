@@ -1,0 +1,132 @@
+.advantages {
+
+}
+
+.advantagesWrapper {
+    width: 100%;
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    @media(max-width: 800px) {
+        margin-bottom: 100px;
+    }
+    @media(max-width: 400px) {
+        margin-bottom: 60px;
+    }
+}
+
+.advantagesContainer {
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media(max-width: 1000px) {
+        min-width: 80%;
+    }
+    @media(max-width: 800px) {
+        width: 90%;
+    }
+    @media(max-width: 550px) {
+        align-items: flex-start;
+    }
+}
+
+.advantagesTitle {
+    
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin-bottom: 70px;
+    font-weight: 500;
+    position: relative;
+
+    &::before {
+        content: '';
+        height: 60px;
+        width: 3px;
+        background-color: var(--dark);
+        position: absolute;
+        bottom: 40px;
+        left: 25%;
+      }
+      &::after {
+        content: '';
+        height: 400px;
+        width: 3px;
+        background-color: var(--dark);
+        position: absolute;
+        top: 40px;
+        left: 25%;
+        @media(max-width: 800px) {
+            height: 320px;
+        }
+      }
+
+      @media(max-width: 800px) {
+        font-size: 25px;
+        margin-bottom: 40px;
+    }
+    @media(max-width: 500px) {
+        font-size: 20px;
+    }
+   
+}
+
+.advantagesList {
+    width: 100%;
+    // display: grid;
+    // grid-template-columns: repeat(1, 1fr);
+    padding-left: 43%;
+    // justify-content: center;
+    column-gap: 60px;
+    align-items: center;
+    text-align: center;
+    @media(max-width: 800px) {
+        column-gap: 40px;
+    }
+    @media(max-width: 700px) {
+        padding-left: 40%;
+    }
+    @media(max-width: 550px) {
+        padding-left: 38%;
+    }
+    @media(max-width: 500px) {
+        padding-left: 28%;
+    }
+}
+
+.advantagesItem {
+    display: flex;
+    text-align: left;
+    color: #807d7d;
+    text-transform: uppercase;
+    font-size: 20px;
+    // flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    // color:var(--dark);
+    // box-shadow: 0 0 10px #ddd;
+    // border-radius: 10px;
+    // padding: 20px;
+    svg {
+        font-size: 60px;
+        color: var(--dark);
+        @media(max-width: 800px) {
+            font-size: 50px;
+        }
+    }
+    @media(max-width: 800px) {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    @media(max-width: 500px) {
+        font-size: 14px;
+    }
+}
+
+// .advantagesItemLeft {
+//     flex-direction: row-reverse;
+//     text-align: right;
+// }
