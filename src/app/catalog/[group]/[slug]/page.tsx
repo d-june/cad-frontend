@@ -10,7 +10,7 @@ type Props = {
 };
 
 async function getData(slug: string) {
-  const response = await fetch(`http://localhost:3001/api/products/${slug}`);
+  const response = await fetch(`http://api.cadhome.ru/api/products/${slug}`);
 
   return response.json();
 }
@@ -38,7 +38,7 @@ const CandlePage = async ({ params: { slug } }: Props) => {
   return (
     <>
       <main className="container">
-        <ProductCard slug={slug} />
+        <ProductCard slug={slug} key={slug} />
       </main>
     </>
   );

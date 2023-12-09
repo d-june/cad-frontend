@@ -3,14 +3,7 @@
 import Image from "next/image";
 import styles from "./Slider.module.scss";
 
-import MenuIcon from "@mui/icons-material/Menu";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import EmailIcon from "@mui/icons-material/Email";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import Logo from "../Logo/Logo";
-import BurgerMenu from "../BurgerMenu";
 import Link from "next/link";
 
 function Item({ item }: any) {

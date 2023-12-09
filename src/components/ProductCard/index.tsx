@@ -120,15 +120,13 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
             spaceBetween={50}
             slidesPerView={1}
             navigation
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
             className={styles.swiper}
           >
             {product?.images?.map((image: any) => {
               return (
                 <SwiperSlide key={image.id}>
                   <img
-                    src={`http://localhost:3001/api/products/product-image/${image}`}
+                    src={`http://api.cadhome.ru/api/products/product-image/${image}`}
                     alt={product.title}
                   ></img>
                 </SwiperSlide>
@@ -152,6 +150,7 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
                 {product?.aromas?.map((aroma) => {
                   return (
                     <div
+                      key={aroma.id}
                       className={
                         checkedAroma === aroma.name
                           ? styles.productCardAromaItem +

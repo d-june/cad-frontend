@@ -82,8 +82,6 @@ const Slider = () => {
             spaceBetween={50}
             slidesPerView={1}
             navigation
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
             className={styles.swiper}
           >
             {carouselImages.map((slide: any) => {

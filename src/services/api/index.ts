@@ -66,7 +66,7 @@ export const Api = (
   
 
   const instance = axios.create({
-    baseURL: "http://localhost:3001/api",
+    baseURL: "http://api.cadhome.ru/api",
     headers: {
       Authorization: token,
     },
