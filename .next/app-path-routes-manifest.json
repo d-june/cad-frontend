@@ -1,0 +1,13 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/about/page": "/about",
+  "/cart/page": "/cart",
+  "/contacts/page": "/contacts",
+  "/catalog/page": "/catalog",
+  "/delivery/page": "/delivery",
+  "/recomendations/page": "/recomendations",
+  "/questions/page": "/questions",
+  "/admin/page": "/admin",
+  "/catalog/[group]/[slug]/page": "/catalog/[group]/[slug]"
+}
