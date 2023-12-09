@@ -15,7 +15,6 @@ import "swiper/swiper-bundle.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper/modules";
 import { translit } from "../utils/translit";
-import { products } from "@/redux/features/products-slice";
 
 const TopProduct = forwardRef(({ product, user }: any, ref: any) => {
   const [domLoaded, setDomLoaded] = useState(false);

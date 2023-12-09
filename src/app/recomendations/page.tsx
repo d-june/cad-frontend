@@ -1,5 +1,3 @@
-import CreatePost from "@/components/CreatePost";
-import Posts from "@/components/Posts";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Metadata } from "next";
 import Recomendations from "@/components/Recomendations";

@@ -25,7 +25,6 @@ const Login: FC<LoginFormProps> = ({ onClickRegister }) => {
   const onSubmit = async (dto: LoginDto) => {
     try {
       const data = await Api().users.login(dto);
-      // setCookie(null, "accessToken", data.accessToken);
       setErrorMessage("");
       dispatch(setUserData(data));
     } catch (err: any) {

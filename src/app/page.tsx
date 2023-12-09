@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-  // const products = await getAllProducts();
+  const products = await getAllProducts();
 
   return (
     <main>
       <Slider />
       <h1>Ароматические свечи ручной работы</h1>
-      {/* {products && <Products top products={products} />} */}
+      {products && <Products top products={products} />}
       <AboutUs />
       <Advantages />
       <AboutCandles />

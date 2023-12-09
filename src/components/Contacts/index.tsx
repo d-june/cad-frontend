@@ -12,15 +12,6 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 const Contacts = () => {
   return (
     <div className={styles.contacts + " container"}>
-      {/* <h1>Контакты</h1> */}
-      {/* <div className={styles.contactsLogo}>
-        <div>CAD</div>
-        <div className={styles.contactsLogoDescription}>
-          <p>Candles</p>
-          <p>Aroma</p>
-          <p>DIY</p>
-        </div>
-      </div> */}
       <div className={styles.contactsImage}>
         <Image src={map} alt="карта"></Image>
       </div>

@@ -1,6 +1,4 @@
 import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
-import productsReducer from './features/products-slice'
-import sliderReducer from './features/slider-slice'
 import {userReducer} from "./slices/user";
 import { createWrapper } from "next-redux-wrapper";
 import  cartSlice  from './slices/cart/slice'
@@ -10,8 +8,6 @@ import adminPanelProductsSlice from './slices/adminPanelProducts/slice'
 export function makeStore() {
     return configureStore({
     reducer: {
-        productsReducer,
-        sliderReducer,
         userReducer,
         cartSlice,
         adminPanelProductsSlice

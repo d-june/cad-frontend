@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 const Catalog: NextPage = async () => {
-  // const products = await getAllProducts();
+  const products = await getAllProducts();
 
   return (
     <>
       <main className="container">
         <Breadcrumbs textItems={[{ text: "Каталог" }]} />
         <h1>Каталог ароматических свечей</h1>
-        {/* {products && <Products products={products} />} */}
+        {products && <Products products={products} />}
       </main>
     </>
   );

@@ -34,8 +34,6 @@ const productsAnimation = {
 const Products: FC<PropsType> = ({ top, products }) => {
   const [domLoaded, setDomLoaded] = useState(false);
 
-  console.log(products);
-
   useEffect(() => {
     setDomLoaded(true);
   }, []);

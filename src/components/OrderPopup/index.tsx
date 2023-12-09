@@ -72,7 +72,6 @@ const OrderPopup: FC<AuthPopupProps> = ({
 
   const onSubmit = async (dto: any) => {
     const delivery = dto.delivery === "pickup" ? "самовывоз" : "доставка";
-    console.log(dto);
     try {
       const data = await Api().products.sendOrder(
         dto.name,

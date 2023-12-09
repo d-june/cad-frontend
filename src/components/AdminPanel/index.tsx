@@ -28,8 +28,6 @@ const AdminPanel = () => {
       });
   }, [products.length, dispatch]);
 
-  console.log("products", products);
-
   if (user && user.roles && user.roles.includes("ADMIN")) {
     return (
       <div>

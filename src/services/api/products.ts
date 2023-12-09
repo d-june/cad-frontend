@@ -35,7 +35,6 @@ export const ProductsApi = (instance: AxiosInstance) => ({
 
   async createProduct  (productInfo: any)  {
     const data = await this.createProductData(productInfo).then(res => {
-      console.log(res)
       this.updateImages(res.id, productInfo.file[0])
     }) 
     return data

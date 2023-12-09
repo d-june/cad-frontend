@@ -1,16 +1,7 @@
 "use client";
 
-import React, { FC, useEffect, useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  TextField,
-  Typography,
-} from "@mui/material";
+import React, { FC, useState } from "react";
+import { Dialog, DialogContent, DialogTitle, Typography } from "@mui/material";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -18,10 +9,6 @@ import styles from "./AuthPopup.module.scss";
 import Main from "./Main";
 import Login from "./Login";
 import Register from "./Register";
-import { useAppDispatch } from "@/redux/hooks";
-import { Api } from "@/services/api";
-import { setUserData } from "@/redux/slices/user";
-import { useSelector } from "react-redux";
 
 interface AuthPopupProps {
   onClose: () => void;

@@ -23,7 +23,6 @@ const UpdateAroma: FC<AddImageProps> = ({ aroma, productId }) => {
   } = useForm();
 
   const onSubmit = async (dto: any) => {
-    console.log(dto);
     const newAroma = {
       id: aroma.id,
       name: dto.name,
@@ -45,7 +44,6 @@ const UpdateAroma: FC<AddImageProps> = ({ aroma, productId }) => {
     if (aromaId) {
       const data = await Api().products.deleteAroma(aromaId);
       dispatch(deleteProductAroma(data));
-      console.log(data, "aromaDtaa");
     }
   };
 

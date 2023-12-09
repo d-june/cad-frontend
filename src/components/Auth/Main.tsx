@@ -6,9 +6,6 @@ import YandexIcon from "../../../public/icons/yandex.svg";
 import Image from "next/image";
 import GoogleIcon from "../../../public/icons/google.svg";
 import MailIcon from "../../../public/icons/mail.svg";
-import TwitterIcon from "../../../public/icons/twitter.svg";
-import FacebookIcon from "../../../public/icons/facebook.svg";
-import AppleIcon from "../../../public/icons/apple.svg";
 
 interface MainFormProps {
   onClickLoginEmail: () => void;

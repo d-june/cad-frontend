@@ -6,14 +6,13 @@ import Breadcrumbs from "../Breadcrumbs";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./ProductCard.module.scss";
-import Image from "next/image";
 import { Button, dividerClasses } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Api } from "@/services/api";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper/modules";
-// Import Swiper styles
+
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
