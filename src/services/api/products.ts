@@ -2,7 +2,6 @@
 import { AxiosInstance } from "axios";
 import { CreateProductDto } from "./types";
 import { AromaType } from "@/app/types/types";
-import next from "next";
 
 export const ProductsApi = (instance: AxiosInstance) => ({
   async getAll() {
@@ -76,7 +75,7 @@ export const ProductsApi = (instance: AxiosInstance) => ({
 
 export const getAllProducts = async ()=> {
   return fetch("http://api.cadhome.ru/api/products", {
-    next: {revalidate: 1}
+    next: {revalidate: 10}
   }).then(res => res.json())
  
 

@@ -4,12 +4,6 @@ import Products from "@/components/Products";
 import { getAllProducts } from "@/services/api/products";
 import { GetServerSideProps, Metadata, NextPage } from "next";
 
-async function getData() {
-  const response = await fetch("http://api.cadhome.ru/api/products/");
-
-  return response.json();
-}
-
 export const metadata: Metadata = {
   title: "Каталог ароматических свечей | CAD",
   description:
@@ -27,7 +21,7 @@ const Catalog: NextPage = async () => {
       <main className="container">
         <Breadcrumbs textItems={[{ text: "Каталог" }]} />
         <h1>Каталог ароматических свечей</h1>
-        {/* <Products products={products} /> */}
+        {/* {products && <Products products={products} />} */}
       </main>
     </>
   );

@@ -3,18 +3,13 @@
 import Link from "next/link";
 import MTopProduct from "../Product";
 import styles from "./Products.module.scss";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import { FC, useEffect, useState } from "react";
-import { ProductsApi } from "@/services/api/products";
-import { setProducts } from "@/redux/features/products-slice";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, AppState } from "@/redux/store";
+
+import { useSelector } from "react-redux";
+import { AppState } from "@/redux/store";
 
 import { motion } from "framer-motion";
-import { Button } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import { ProductType } from "@/app/types/types";
-import { Api } from "@/services/api";
 
 type PropsType = {
   top?: boolean;
@@ -49,7 +44,7 @@ const Products: FC<PropsType> = ({ top, products }) => {
   const topProducts = products.filter((product: any) => product.top === true);
 
   return (
-    <>
+    <div>
       {domLoaded && (
         <motion.section
           className={styles.topProducts + " container"}
@@ -90,7 +85,7 @@ const Products: FC<PropsType> = ({ top, products }) => {
           ) : null}
         </motion.section>
       )}
-    </>
+    </div>
   );
 };
 
