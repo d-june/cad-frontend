@@ -1,12 +1,11 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Header } from "@/components/Header/Header";
 import Products from "@/components/Products";
-import { Api } from "@/services/api";
 import { getAllProducts } from "@/services/api/products";
 import { GetServerSideProps, Metadata, NextPage } from "next";
 
 async function getData() {
-  const response = await fetch("http://localhost:3001/api/products/");
+  const response = await fetch("http://api.cadhome.ru/api/products/");
 
   return response.json();
 }
@@ -21,14 +20,14 @@ export const metadata: Metadata = {
 };
 
 const Catalog: NextPage = async () => {
-  const products = await getAllProducts();
+  // const products = await getAllProducts();
 
   return (
     <>
       <main className="container">
         <Breadcrumbs textItems={[{ text: "Каталог" }]} />
         <h1>Каталог ароматических свечей</h1>
-        <Products products={products} />
+        {/* <Products products={products} /> */}
       </main>
     </>
   );

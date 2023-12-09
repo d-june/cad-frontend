@@ -38,7 +38,7 @@ const CandlePage = async ({ params: { slug } }: Props) => {
   return (
     <>
       <main className="container">
-        <ProductCard slug={slug} key={slug} />
+        <ProductCard slug={slug} />
       </main>
     </>
   );
