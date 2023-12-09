@@ -8,8 +8,6 @@ import { GetServerSideProps, Metadata, NextPage } from "next";
 async function getData() {
   const response = await fetch("http://localhost:3001/api/products/");
 
-  // console.log(response.json());
-
   return response.json();
 }
 
