@@ -8,9 +8,7 @@
 
 .burgerNavigation {
   position: absolute;
-  top: 0%;
   right: -100vw;
-  margin-top: 30px;
   padding: 10px 20px;
   width: 100vw;
   height: calc(100vh - 100px);
@@ -46,10 +44,9 @@ li {
 }
 
 .burgerNavigationVisible {
-    top: 0;
     right: -20px;
     opacity: 1;
-  visibility: visible;
+    visibility: visible;
    
 
 }

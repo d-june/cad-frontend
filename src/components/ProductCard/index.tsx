@@ -19,6 +19,7 @@ import "swiper/scss/pagination";
 import { CartItemType } from "@/redux/slices/cart/types";
 import { addProduct } from "@/redux/slices/cart/slice";
 import { AppState } from "@/redux/store";
+import Image from "next/image";
 
 type ProductCardProps = {
   slug: string;
@@ -124,10 +125,13 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
             {product?.images?.map((image: any) => {
               return (
                 <SwiperSlide key={image.id}>
-                  <img
+                  <Image
                     src={`http://api.cadhome.ru/api/products/product-image/${image}`}
                     alt={product.title}
-                  ></img>
+                    width={600}
+                    height={600}
+                    loading="lazy"
+                  />
                 </SwiperSlide>
               );
             })}

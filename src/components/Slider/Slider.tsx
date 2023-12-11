@@ -10,11 +10,6 @@ import Item from "./Item";
 
 import styles from "./Slider.module.scss";
 
-import product1 from "../../../public/candles/stok-main/photo-1612179518346-cf36e6695c6c.jpg";
-import product2 from "../../../public/candles/stok-main/loon-image-original (4).jpg";
-import product3 from "../../../public/candles/stok-main/loon-image-original.jpg";
-import product4 from "../../../public/candles/stok-main/6.jpg";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -33,29 +28,33 @@ const sliderAnimation = {
 const carouselImages = [
   {
     id: 1,
-    image: product1,
-    title: "hello",
+    image:
+      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/vlax0ic1kqx7dhfwnyn5.jpg",
+    title: "Ароматическая свеча",
     advantage: "Аромаотдача",
     advantageDescription: "Приятные ароматы создают уютную атмосферу",
   },
   {
     id: 2,
-    image: product2,
-    title: "hi",
+    image:
+      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/s8kq1l2l6qq4nh2sjwcj.jpg",
+    title: "Ароматическая свеча",
     advantage: "Экологичность",
     advantageDescription: "Свечи сделаны из натурального воска",
   },
   {
     id: 3,
-    image: product3,
-    title: "so",
+    image:
+      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/ssq05gel71tm7ght2600.jpg",
+    title: "Ароматическая свеча",
     advantage: "Время горения",
     advantageDescription: "Свеча объемом 200 мл. горит ~ 40 часов",
   },
   {
     id: 4,
-    image: product4,
-    title: "yes",
+    image:
+      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/jgp06s024xssxruo6fus.jpg",
+    title: "Ароматическая свеча",
     advantage: "Ручная работа",
     advantageDescription: "Каждая свеча уникальна",
   },

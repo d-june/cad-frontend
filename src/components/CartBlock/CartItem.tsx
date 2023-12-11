@@ -11,6 +11,7 @@ import {
 
 import styles from "./Cart.module.scss";
 import { Button } from "@mui/material";
+import Image from "next/image";
 
 const CartItemBlock: FC<CartItemType> = ({
   id,
@@ -40,9 +41,11 @@ const CartItemBlock: FC<CartItemType> = ({
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemImage}>
-        <img
-          src={`http://localhost:3001/api/products/product-image/${imageUrl}`}
-          alt="product image"
+        <Image
+          src={`http://api.cadhome.ru/api/products/product-image/${imageUrl}`}
+          alt="ароматическая свеча"
+          width={200}
+          height={200}
         />
       </div>
 

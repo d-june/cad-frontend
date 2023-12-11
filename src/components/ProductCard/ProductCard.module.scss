@@ -164,7 +164,6 @@
 .card {
     display: flex;
     flex-direction: column;
-    // align-items: center;
     gap: 20px;
     margin-top: 20px;
     button {
@@ -199,7 +198,9 @@
     display: grid;
     grid-template-columns: 80%;
     justify-content: center;
-    margin-bottom: 50px;
+    @media(max-width: 600px) {
+        font-size: 14px;
+    }
 }
 
 .productCardCharacteristics {

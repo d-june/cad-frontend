@@ -41,8 +41,10 @@
             }
         }
         transition: color 0.3s ease-out 0s;
-        &:hover {
-            color: var(--accent);
+        @media(any-hover: hover) {
+            &:hover {
+                color: var(--accent);
+            }
         }
      
         
@@ -70,8 +72,10 @@
             }
         }
         transition: color 0.3s ease-out 0s;
-        &:hover {
-            color: var(--accent);
+        @media(any-hover: hover) {
+            &:hover {
+                color: var(--accent);
+            }
         }
     }
 }
@@ -149,9 +153,12 @@
     text-transform: uppercase;
     background-color: var(--white);
     transition: color 0.3s ease-out 0s;
-    &:hover {
-        color: var(--accent);
+    @media(any-hover: hover) {
+        &:hover {
+            color: var(--accent);
+        }
     }
+    
     
 }
 

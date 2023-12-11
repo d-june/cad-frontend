@@ -24,7 +24,7 @@ export const theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         rounded: {
-          borderRadius: 8,
+          borderRadius: 8, 
         },
       },
     },

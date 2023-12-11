@@ -1,9 +1,9 @@
 .cart {
-  padding: 20px 0 50px 0;
+  padding: 20px 0 0px 0;
   max-width: 900px;
   margin: 0 auto;
   @media (max-width: 700px) {
-    padding: 0px 0px 50px 0px;
+    padding: 0px 0px 0px 0px;
   }
 }
 .cartTop {
@@ -73,9 +73,12 @@
 
   cursor: pointer;
   transition: all 0.3s ease-out 0s;
-  &:hover {
-    color: var(--accent);
+  @media(any-hover: hover) {
+    &:hover {
+      color: var(--accent);
+    }
   }
+
   svg {
     font-size: 22px;
     @media (max-width: 650px) {
@@ -203,10 +206,13 @@
   color: var(--accent);
   cursor: pointer;
   transition: all 0.3s ease-out 0s;
-  &:hover {
-    background: var(--accent);
-    color: #fff;
+  @media(any-hover: hover) {
+    &:hover {
+      background: var(--accent);
+      color: #fff;
+    }
   }
+ 
   &:active {
     transform: translate(0, 4px);
   }
@@ -215,11 +221,14 @@
     color: var(--grey);
 
     transform: none;
-    &:hover {
-      border: 1px solid var(--grey);
-      background-color: #fff;
-      color: var(--grey);
+    @media(any-hover: hover) {
+      &:hover {
+        border: 1px solid var(--grey);
+        background-color: #fff;
+        color: var(--grey);
+      }
     }
+    
   }
 
   @media (max-width: 650px) {
@@ -259,9 +268,12 @@
   color: #fff;
   cursor: pointer;
   transition: all 0.3s ease-out 0s;
-  &:hover {
-    opacity: 0.7;
+  @media(any-hover: hover) {
+    &:hover {
+      opacity: 0.7;
+    }
   }
+  
 
   @media (max-width: 650px) {
     width: 30px;
@@ -308,7 +320,7 @@
     font-weight: 700;
     font-size: 20px;
     @media (max-width: 550px) {
-      font-size: 16px;
+      font-size: 16px; 
     }
   }
 }

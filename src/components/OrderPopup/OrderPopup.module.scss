@@ -24,8 +24,10 @@
     right: 24px;
     cursor: pointer;
     transition: color 0.3s ease-in-out 0s;
-    &:hover {
-        color: var(--accent);
+    @media(any-hover: hover) {
+        &:hover {
+          color: var(--accent);
+        }
     }
 }
 
@@ -96,9 +98,11 @@
     right: 0;
     cursor: pointer;
     transition: color 0.3s ease-in-out 0s;
-    &:hover {
-        color: var(--dark);
-    }
+    @media(any-hover: hover) {
+        &:hover {
+          color: var(--dark);
+        }
+      }
 }
 
 .orderSuccessBody {

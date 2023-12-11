@@ -67,11 +67,14 @@ const TopProduct = forwardRef(({ product, user }: any, ref: any) => {
               {product.images.map((image: any) => {
                 return (
                   <SwiperSlide key={image.id}>
-                    <img
+                    <Image
                       src={`http://api.cadhome.ru/api/products/product-image/${image}`}
                       alt={product.title}
                       className={styles.productImage}
-                    ></img>
+                      width={600}
+                      height={600}
+                      loading="lazy"
+                    />
                   </SwiperSlide>
                 );
               })}

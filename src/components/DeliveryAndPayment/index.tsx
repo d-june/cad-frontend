@@ -1,6 +1,6 @@
 import styles from "./DeliveryAndPayment.module.scss";
-import boxCandleWhitePhoto from "../../../public/candles/stok-main/IMG_4541.jpg";
-import boxCandleBlackPhoto from "../../../public/candles/stok-main/IMG_4545.jpg";
+import boxCandleWhitePhoto from "../../../public/candles/aroma-candle-11.jpg";
+import boxCandleBlackPhoto from "../../../public/candles/aroma-candle-12.jpg";
 import Image from "next/image";
 
 const DeliveryAndPayment = () => {
@@ -24,8 +24,11 @@ const DeliveryAndPayment = () => {
 
         <div className={styles.deliveryAndPaymentImage}>
           <Image
-            src={boxCandleWhitePhoto}
+            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/gvya3pw2fin1mcfxtoa0.jpg"
             alt="свеча в белом подсвечнике в коробке"
+            width={942}
+            height={706}
+            priority
           />
         </div>
       </div>
@@ -33,8 +36,11 @@ const DeliveryAndPayment = () => {
       <div className={styles.delivery}>
         <div className={styles.deliveryAndPaymentImage}>
           <Image
-            src={boxCandleBlackPhoto}
+            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/cn0mvyr6yqgpocue49mu.jpg"
             alt="свеча в черном подсвечнике в коробке"
+            width={942}
+            height={706}
+            loading="lazy"
           />
         </div>
         <div className={styles.deliveryContent}>

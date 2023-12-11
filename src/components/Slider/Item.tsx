@@ -25,6 +25,8 @@ function Item({ item }: any) {
             alt={item.title}
             style={{ width: "100%", height: "60vh", objectFit: "cover" }}
             priority={true}
+            width={600}
+            height={600}
           />
         </div>
         <div className={styles.rigthSide}>

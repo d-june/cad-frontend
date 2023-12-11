@@ -14,9 +14,7 @@ export const metadata: Metadata = {
 const Blog = () => {
   return (
     <main className="container">
-      <Breadcrumbs
-        textItems={[{ text: "Рекомендации по использованию свечей" }]}
-      />
+      <Breadcrumbs textItems={[{ text: "Рекомендации по использованию" }]} />
       <Recomendations />
     </main>
   );

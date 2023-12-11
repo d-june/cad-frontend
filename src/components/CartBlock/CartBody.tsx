@@ -73,7 +73,7 @@ const CartBody: FC = () => {
                 <div className={styles.cartMinOrder}>
                   <p>
                     До бесплатной доставки не хватает
-                    <span>{minOrder - totalPrice} ₽</span>
+                    <span> {minOrder - totalPrice} ₽</span>
                   </p>
                   <p>Минимальная сумма заказа {minOrder} ₽</p>
                 </div>

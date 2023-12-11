@@ -28,7 +28,7 @@
     background-color: var(--dark);
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 0; 
     }
     @media(max-width: 500px) {
       gap: 10px;
@@ -42,9 +42,12 @@
     align-items: center;
     gap: 10px;
     transition: color 0.3s ease-out 0s;
-    &:hover {
-      color: var(--accent);
+    @media(any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
     }
+
     @media(max-width: 500px) {
       display: none;
     }
@@ -58,8 +61,10 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.3s ease-out 0s;
-    &:hover {
-      color: var(--accent);
+    @media(any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
     }
   }
 

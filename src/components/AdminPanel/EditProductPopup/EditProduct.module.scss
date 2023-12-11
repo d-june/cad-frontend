@@ -67,10 +67,13 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease-in-out 0s;
-    &:hover {
-        background-color: crimson;
-        color: #fff
+    @media(any-hover: hover) {
+        &:hover {
+            background-color: crimson;
+            color: #fff
+        }
     }
+    
 }
 
 .editProductForm { 
@@ -83,9 +86,12 @@
     top: 5px;
     right: 5px;
     cursor: pointer;
-    &:hover {
-        color: var(--accent);
+    @media(any-hover: hover) {
+        &:hover {
+            color: var(--accent);
+        }
     }
+
 }
 
 .editProductAccordionTitle {
@@ -128,11 +134,14 @@
 .editProductDeleteAroma {
     border-color: crimson !important;
     color: crimson !important;
-    &:hover {
-        border-color: crimson !important;
-        background-color: crimson !important;
-        color: #fff !important;
+    @media(any-hover: hover) {
+        &:hover {
+            border-color: crimson !important;
+            background-color: crimson !important;
+            color: #fff !important;
+        }
     }
+    
 }
 
 .editProductAddAroma {
@@ -150,5 +159,5 @@
     @media (max-width: 500px) {
         display: flex;
         flex-direction: column;
-    }
+    } 
 }

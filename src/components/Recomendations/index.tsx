@@ -1,11 +1,4 @@
 import styles from "./Recomendations.module.scss";
-import recomendationIcon1 from "../../../public/recomendations-icons/1.png";
-import recomendationIcon2 from "../../../public/recomendations-icons/2.png";
-import recomendationIcon3 from "../../../public/recomendations-icons/3.png";
-import recomendationIcon4 from "../../../public/recomendations-icons/4.png";
-import recomendationIcon5 from "../../../public/recomendations-icons/5.png";
-import candleWithLetters from "../../../public/candles/stok-main/4.jpg";
-import candleWithBooks from "../../../public/candles/stok-main/1.jpg";
 import Image from "next/image";
 
 import FireplaceIcon from "@mui/icons-material/Fireplace";
@@ -20,43 +13,60 @@ const Recomendations = () => {
           <h1>Рекомендации по использованию свечей</h1>
           <ul>
             <li>
-              Чтобы свечи горели заявленное время, им нужно давать отдыхать,
-              т.е. после 1-2 часов горения дать застыть и потом снова зажечь.
+              Первое горение свечи должно длиться до полного расплавления ее
+              верхушки, чтобы в дальнейшем не образовывалось туннеля, в котором
+              свеча будет гореть хуже и для того, чтобы аромат смог полностью
+              раскрыться.
             </li>
             <li>
-              При первом использовании свечи нужно подождать, пока ее
-              поверхность полностью расплавится. Это поможет избежать
-              образование туннеля, в котором свеча будет гореть хуже.
+              Деревянный фитиль возможно нужно будет поджигать несколько раз до
+              тех пор, пока огонь не доберется до воска, это нормально.
             </li>
             <li>
-              Перед повторным использованием почерневший фитиль нужно подрезать,
-              чтобы устранить запах гари. Длина фитиля должна быть не более 8
-              мм.
+              Чтобы свечи горели заявленное время, им нужно давать отдых, т.е.
+              после 1-2 часов горения дать застыть и потом снова зажечь.
             </li>
             <li>
-              Не оставляйте свечу на продуваемом месте (на ветру или сквозняке),
-              иначе возможно затухание свечи или она будет гореть неравномерно.
+              Перед повторным использованием свечи отгоревший фитиль нужно
+              подрезать, чтобы устранить запах гари от фитиля. Длина фитиля
+              должна быть не более 5-8 мм.
             </li>
-            <li>Храните свечи в темном прохладном месте.</li>
+            <li>
+              Не оставляйте свечу на продуваемом месте, иначе возможно затухание
+              свечи, или она будет гореть неравномерно.
+            </li>
+            <li>
+              Храните свечу в темном, сухом, прохладном месте. Высокая влажность
+              в помещении может негативно сказаться на качестве горения
+              деревянного фитиля.
+            </li>
           </ul>
         </div>
         <div className={styles.recomendationsImage}>
-          <Image src={candleWithLetters} alt="свеча"></Image>
+          <Image
+            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/wlkmqfxdelymddlftf16.jpg"
+            alt="свеча"
+            width={942}
+            height={608}
+            priority
+          ></Image>
         </div>
       </div>
       <div className={styles.accidentPreventionBlock}>
         <div className={styles.recomendationsImage}>
-          <Image src={candleWithBooks} alt="свеча"></Image>
+          <Image
+            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/uvyw3wz5outosj36mxt5.jpg"
+            alt="свеча"
+            width={942}
+            height={753}
+            loading="lazy"
+          ></Image>
         </div>
         <div className={styles.accidentPreventionContent}>
           <h2>Техника безопасности</h2>
           <ul>
             <li>
               <div className={styles.recomendationsIcon}>
-                {/* <Image
-                  src={recomendationIcon1}
-                  alt="иконка: не оставляйте свечу без внимания"
-                /> */}
                 <PetsIcon />
               </div>
               <p>
@@ -66,33 +76,15 @@ const Recomendations = () => {
             </li>
             <li>
               <div className={styles.recomendationsIcon}>
-                {/* <Image
-                  src={recomendationIcon2}
-                  alt="иконка: не задувайте свечу"
-                /> */}
                 <AirIcon />
               </div>
               Для того, чтобы погасить свечу, следует ее накрыть каким-либо
               предметом, исключив поступление кислорода, например, крышкой
               подсвечника.
             </li>
-            <li>
-              <div className={styles.recomendationsIcon}>
-                <Image
-                  src={recomendationIcon3}
-                  alt="иконка: ставьте свечу ровно, устойчиво"
-                />
-              </div>
-              <p> Ставьте свечу ровно, устойчиво, а не под наклоном.</p>
-            </li>
 
             <li>
               <div className={styles.recomendationsIcon}>
-                {/* <Image
-                  src={recomendationIcon5}
-                  alt="иконка: не ставьте горящую свечу на подоконник или рядом с
-                легковоспламеняющимися предметами"
-                /> */}
                 <FireplaceIcon />
               </div>
               <p>

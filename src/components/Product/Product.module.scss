@@ -80,9 +80,12 @@
     padding: 10px;
     background-color: #fff;
     cursor: pointer;
-    &:hover {
-      color: var(--accent);
+    @media(any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+      }
     }
+   
   }
 
   .productDelete {
@@ -94,9 +97,12 @@
     color: red;
     background-color: #fff;
     cursor: pointer;
-    &:hover {
-      color: var(--dark);
+    @media(any-hover: hover) {
+      &:hover {
+        color: var(--dark);
+      }
     }
+
   }
 
   .productDescription {
@@ -139,10 +145,13 @@
     gap: 10px;
     padding: 10px 15px;
     transition: all 0.3s ease-out 0s;
-    &:hover {
-      background: var(--accent);
-      color: #fff;
+    @media(any-hover: hover) {
+      &:hover {
+        background: var(--accent);
+        color: #fff;
+      }
     }
+   
     &:active {
       transform: translateY(5px);
     }
@@ -159,10 +168,13 @@
     transition: all 0.3s ease-out 0s;
     width: 50px;
     height: 50px;
-    &:hover {
-      background: var(--accent);
-      color: #fff;
+    @media(any-hover: hover) {
+      &:hover {
+        background: var(--accent);
+        color: #fff;
+      }
     }
+   
     &:active {
       transform: translateY(5px);
     }

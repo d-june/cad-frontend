@@ -1,5 +1,4 @@
 .topProducts {
-  margin-bottom: 50px;
   width: 100%;
  
 }
@@ -58,11 +57,14 @@
       left: 50%;
 
     }
-
-    &:hover {
-      color: var(--accent);
- 
+    @media(any-hover: hover) {
+      &:hover {
+        color: var(--accent);
+   
+      }
     }
+
+   
 
     @media(max-width: 650px) {
       font-size: 20px;

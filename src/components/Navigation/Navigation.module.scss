@@ -2,9 +2,12 @@
     display: flex;
     .navigationItem {
       transition: color 0.3s ease-out 0s;
-      &:hover {
-        color: var(--accent);
+      @media(any-hover: hover) {
+        &:hover {
+          color: var(--accent);
+        }
       }
+      
         a {
           padding: 20px;
           text-transform: uppercase;

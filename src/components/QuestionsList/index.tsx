@@ -4,12 +4,10 @@ import * as React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import styles from "./QuestionsList.module.scss";
 
-import candle from "../../../public/candles/stok-main/IMG_4536.jpg";
 import Image from "next/image";
 
 const questionsListData = [
@@ -99,7 +97,13 @@ export default function QuestionsList() {
         })}
       </div>
       <div className={styles.questionsListImage}>
-        <Image src={candle} alt="candle" />
+        <Image
+          src={`https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/yqohauaz5acjfstxgybk.jpg`}
+          width={942}
+          height={706}
+          alt="ароматическая свеча"
+          priority
+        />
       </div>
     </div>
   );

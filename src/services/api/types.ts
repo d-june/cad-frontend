@@ -14,7 +14,6 @@ export type CreateProductDto = {
   description: string;
   volume: string;
   price: string;
-  // aromas: string[];
   group: string;
   top: boolean
 }

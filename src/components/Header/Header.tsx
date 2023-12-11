@@ -79,7 +79,7 @@ const Header: FC = () => {
             visible: { y: 0 },
             hidden: { y: "-100%" },
           }}
-          initial="hidden"
+          initial="visible"
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >

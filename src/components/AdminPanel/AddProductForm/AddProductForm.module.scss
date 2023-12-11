@@ -18,16 +18,19 @@
         cursor: pointer;
         color: var(--grey);
         transition: color 0.3s ease-in-out 0s;
-        &:hover {
-            color: var(--main);
+        @media(any-hover: hover) {
+            &:hover {
+                color: var(--main);
+            }
         }
+        
     }
 }
 
 .addProductFormSelect {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 10px; 
     margin-bottom: 20px;
 }
 
@@ -54,22 +57,29 @@
         // width: 50px;
         transition: all 0.3s ease-in-out 0s;
         height: 50px;
-        &:hover {
-            background-color: var(--accent);
-            color: #fff;
-        }
+        @media(any-hover: hover) {
+            &:hover {
+                background-color: var(--accent);
+                color: #fff;
+            }
+          }
+        
     }
 }
 
 .deleteAromaButton {
     border-color: rgb(228, 44, 81) !important;
     color: rgb(228, 44, 81) !important;
- 
-    &:hover {
-        background-color: rgb(228, 44, 81) !important;
-        border-color: rgb(228, 44, 81);
-        color: #fff !important;
+
+    @media(any-hover: hover) {
+        &:hover {
+            background-color: rgb(228, 44, 81) !important;
+            border-color: rgb(228, 44, 81);
+            color: #fff !important;
+        }
     }
+ 
+   
 }
 
 .createProductButton {

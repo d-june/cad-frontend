@@ -1,6 +1,5 @@
 "use client";
 import styles from "./AboutUs.module.scss";
-import candle from "../../../public/candles/stok-main/loon-image-original (9).jpg";
 import Image from "next/image";
 
 import { motion } from "framer-motion";
@@ -43,7 +42,15 @@ const AboutUs = () => {
       viewport={{ amount: 0.2, once: true }}
     >
       <motion.div className={styles.aboutImage} variants={imageAnimation}>
-        <Image src={candle} alt="свеча" />
+        <Image
+          src={
+            "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/kjrj0nphhpnstgxu5pqw.jpg"
+          }
+          width={600}
+          height={600}
+          alt="ароматическая свеча"
+          loading="lazy"
+        />
       </motion.div>
       <motion.div className={styles.aboutText} variants={textAnimation}>
         <h2>Тепло и уют в ваш дом</h2>

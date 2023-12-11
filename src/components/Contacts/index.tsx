@@ -1,6 +1,5 @@
 import styles from "./Contacts.module.scss";
 
-import map from "../../../public/map-2.jpg";
 import vkIcon from "../../../public/icons/vk.svg";
 import Image from "next/image";
 import TelegramIcon from "@mui/icons-material/Telegram";
@@ -13,7 +12,13 @@ const Contacts = () => {
   return (
     <div className={styles.contacts + " container"}>
       <div className={styles.contactsImage}>
-        <Image src={map} alt="карта"></Image>
+        <Image
+          src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702290995/hvfmvqgqbswau9tj5dix.jpg"
+          width={1226}
+          height={387}
+          alt="карта"
+          priority
+        ></Image>
       </div>
       <div className={styles.contactsContent}>
         <p>
