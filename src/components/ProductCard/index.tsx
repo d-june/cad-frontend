@@ -59,7 +59,7 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
         description: product.description,
         price: product.price,
         imageUrl: product.images && product.images[0],
-        aroma: { name: checkedAroma, count: addedCount },
+        aroma: { id: checkedProduct.id, name: checkedAroma, count: addedCount },
         availableCount: checkedProduct?.count,
         color: product?.color,
         volume: product?.volume,

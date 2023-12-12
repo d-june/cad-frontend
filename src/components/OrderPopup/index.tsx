@@ -2,37 +2,22 @@ import React, { FC, useState } from "react";
 import {
   Alert,
   Button,
-  Checkbox,
-  Chip,
   Dialog,
-  DialogActions,
   DialogContent,
-  DialogContentText,
-  DialogTitle,
-  FormControl,
   FormControlLabel,
-  FormLabel,
-  Input,
-  InputLabel,
-  MenuItem,
   Radio,
   RadioGroup,
-  Select,
-  SelectChangeEvent,
   TextField,
-  Typography,
 } from "@mui/material";
 
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useForm } from "react-hook-form";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { ProductType } from "@/app/types/types";
+import { AromaType, ProductType } from "@/app/types/types";
 import { Api } from "@/services/api";
 import { CartItemType } from "@/redux/slices/cart/types";
 
 import styles from "./OrderPopup.module.scss";
-import { Montserrat } from "next/font/google";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import { useAppDispatch } from "@/redux/hooks";
 import { clearCart } from "@/redux/slices/cart/slice";
@@ -41,7 +26,7 @@ interface AuthPopupProps {
   onClose: () => void;
   open: boolean;
   handleClose: () => void;
-  products: CartItemType[];
+  productsCart: CartItemType[];
   totalPrice: number;
 }
 
@@ -49,7 +34,7 @@ const OrderPopup: FC<AuthPopupProps> = ({
   onClose,
   open,
   handleClose,
-  products,
+  productsCart,
   totalPrice,
 }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -64,11 +49,50 @@ const OrderPopup: FC<AuthPopupProps> = ({
     handleSubmit,
   } = useForm();
 
-  const text = products
+  const text = productsCart
     .map((product) => {
       return ` ${product.color} ${product.title} ${product.volume} мл. (Аромат: ${product.aroma.name}): ${product.aroma.count} шт.`.toLowerCase();
     })
     .toLocaleString();
+
+  const changeAromaCount = async () => {
+    const products = await Api().products.getAll();
+    productsCart.map((productCart) => {
+      const product = products.filter((product: ProductType) => {
+        return product.id === productCart.id;
+      });
+
+      const aroma = product[0].aromas.filter((aroma: AromaType) => {
+        return aroma.id === productCart.aroma.id;
+      });
+
+      if (Number(productCart.aroma.count) < aroma[0].count) {
+        const newAroma = {
+          id: productCart.aroma.id,
+          name: productCart.aroma.name,
+          count: aroma[0].count - Number(productCart.aroma.count),
+          productId: productCart.id,
+        };
+        try {
+          Api().products.updateAroma(newAroma);
+        } catch (err: any) {
+          console.warn("Не удалось обновить аромат", err);
+          if (err.response) {
+            // setErrorMessage(err.response.data.message);
+          }
+        }
+      } else {
+        try {
+          Api().products.deleteAroma(productCart.aroma.id);
+        } catch (err: any) {
+          console.warn("Не удалось обновить аромат", err);
+          if (err.response) {
+            // setErrorMessage(err.response.data.message);
+          }
+        }
+      }
+    });
+  };
 
   const onSubmit = async (dto: any) => {
     const delivery = dto.delivery === "pickup" ? "самовывоз" : "доставка";
@@ -89,6 +113,9 @@ const OrderPopup: FC<AuthPopupProps> = ({
         setErrorMessage(err.response.data.message);
       }
     }
+
+    changeAromaCount();
+
     onClose();
 
     setOrderSuccess(true);

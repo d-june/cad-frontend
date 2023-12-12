@@ -15,6 +15,7 @@ import Link from "next/link";
 import { selectCart } from "@/redux/slices/cart/selectors";
 import { Button } from "@mui/material";
 import OrderPopup from "../OrderPopup";
+import { Api } from "@/services/api";
 
 const CartBody: FC = () => {
   const { products, totalPrice } = useSelector(selectCart);
@@ -93,7 +94,7 @@ const CartBody: FC = () => {
         onClose={closeEditDialog}
         open={orderFormVisible}
         handleClose={closeEditDialog}
-        products={products}
+        productsCart={products}
         totalPrice={totalPrice}
       />
     </div>

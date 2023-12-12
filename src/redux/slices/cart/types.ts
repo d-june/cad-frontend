@@ -13,6 +13,7 @@ export type CartItemType = {
 
 
 type AromaType = {
+  id: number;
   name: string; 
   count: number;
 }
