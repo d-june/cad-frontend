@@ -49,8 +49,11 @@ const Header: FC = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
+    console.log(latest);
     if (latest > previous) {
       setHidden(true);
+    } else if (latest === 0 || latest < 0) {
+      setHidden(false);
     } else {
       setHidden(false);
     }
