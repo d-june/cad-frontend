@@ -76,7 +76,7 @@ const Header: FC = () => {
         <motion.header
           className={styles.header}
           variants={{
-            visible: { y: -1 },
+            visible: { y: "0%" },
             hidden: { y: "-100%" },
           }}
           initial="hidden"
