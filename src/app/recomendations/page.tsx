@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const Blog = () => {
   return (
-    <main className="container">
+    <main className="container main">
       <Breadcrumbs textItems={[{ text: "Рекомендации по использованию" }]} />
       <Recomendations />
     </main>

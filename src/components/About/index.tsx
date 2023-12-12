@@ -1,17 +1,13 @@
 import styles from "./About.module.scss";
 import Image from "next/image";
 
+import candle from "../../../public/candles/aroma-candle-10.jpg";
+
 const About = () => {
   return (
     <section className={styles.about}>
       <div className={styles.aboutImage}>
-        <Image
-          src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/sb71fig5tzjza2ss7ykl.jpg"
-          alt="ароматическая свеча"
-          width={558}
-          height={844}
-          priority
-        />
+        <img src={candle.src} alt="ароматическая свеча" />
       </div>
       <div className={styles.aboutContent}>
         <h1 className={styles.aboutTitle}>О нас</h1>

@@ -23,24 +23,18 @@ const DeliveryAndPayment = () => {
         </div>
 
         <div className={styles.deliveryAndPaymentImage}>
-          <Image
-            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/gvya3pw2fin1mcfxtoa0.jpg"
+          <img
+            src={boxCandleWhitePhoto.src}
             alt="свеча в белом подсвечнике в коробке"
-            width={942}
-            height={706}
-            priority
           />
         </div>
       </div>
 
       <div className={styles.delivery}>
         <div className={styles.deliveryAndPaymentImage}>
-          <Image
-            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/cn0mvyr6yqgpocue49mu.jpg"
+          <img
+            src={boxCandleBlackPhoto.src}
             alt="свеча в черном подсвечнике в коробке"
-            width={942}
-            height={706}
-            loading="lazy"
           />
         </div>
         <div className={styles.deliveryContent}>

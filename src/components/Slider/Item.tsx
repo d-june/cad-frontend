@@ -20,13 +20,10 @@ function Item({ item }: any) {
               Перейти в каталог <ArrowRightAltIcon />
             </Link>
           </div>
-          <Image
-            src={item.image}
+          <img
+            src={item.image.src}
             alt={item.title}
             style={{ width: "100%", height: "60vh", objectFit: "cover" }}
-            priority={true}
-            width={600}
-            height={600}
           />
         </div>
         <div className={styles.rigthSide}>

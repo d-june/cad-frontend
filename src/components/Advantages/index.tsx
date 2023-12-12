@@ -2,19 +2,12 @@
 
 import styles from "./Advantages.module.scss";
 import ForestIcon from "@mui/icons-material/Forest";
-import LandscapeIcon from "@mui/icons-material/Landscape";
-import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 
-import AutorenewOutlinedIcon from "@mui/icons-material/AutorenewOutlined";
 import RestoreOutlinedIcon from "@mui/icons-material/RestoreOutlined";
-import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import VolunteerActivismOutlinedIcon from "@mui/icons-material/VolunteerActivismOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Image from "next/image";
 
 const advantagesAnimation = {
   hidden: {

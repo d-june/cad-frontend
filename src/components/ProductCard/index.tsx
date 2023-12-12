@@ -125,12 +125,9 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
             {product?.images?.map((image: any) => {
               return (
                 <SwiperSlide key={image.id}>
-                  <Image
-                    src={`http://api.cadhome.ru/api/products/product-image/${image}`}
+                  <img
+                    src={`https://owa.cadhome.ru/api/products/product-image/${image}`}
                     alt={product.title}
-                    width={600}
-                    height={600}
-                    loading="lazy"
                   />
                 </SwiperSlide>
               );
@@ -138,7 +135,10 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
           </Swiper>
         </div>
         <div className={styles.productCardAbout}>
-          <h1>{product?.title}</h1>
+          <div className={styles.productTitle}>
+            <h1>{product?.title}</h1>
+          </div>
+
           <div className={styles.productCardContent}>
             {product?.generalGroup === "Свечи" && (
               <p>Ароматическая свеча из соевого воска</p>

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const CartPage = () => {
   return (
-    <main>
+    <main className="container main">
       <CartBody />
     </main>
   );

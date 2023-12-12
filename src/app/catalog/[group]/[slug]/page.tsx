@@ -37,7 +37,7 @@ export async function generateMetadata({
 const CandlePage = async ({ params: { slug } }: Props) => {
   return (
     <>
-      <main className="container">
+      <main className="container main">
         <ProductCard slug={slug} />
       </main>
     </>

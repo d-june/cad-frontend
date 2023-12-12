@@ -10,6 +10,8 @@ import styles from "./QuestionsList.module.scss";
 
 import Image from "next/image";
 
+import candle from "../../../public/candles/aroma-candle-10.jpg";
+
 const questionsListData = [
   {
     id: 1,
@@ -97,13 +99,7 @@ export default function QuestionsList() {
         })}
       </div>
       <div className={styles.questionsListImage}>
-        <Image
-          src={`https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/yqohauaz5acjfstxgybk.jpg`}
-          width={942}
-          height={706}
-          alt="ароматическая свеча"
-          priority
-        />
+        <img src={candle.src} alt="ароматическая свеча" />
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const AboutPage = () => {
   return (
     <>
-      <main className="container">
+      <main className="container main">
         <Breadcrumbs textItems={[{ text: "О нас" }]} />
         <About />
       </main>

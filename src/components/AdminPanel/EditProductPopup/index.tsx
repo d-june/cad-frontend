@@ -133,7 +133,7 @@ const EditProduct: FC<AuthPopupProps> = ({ product }) => {
           return (
             <div className={styles.editProductImage}>
               <img
-                src={`http://api.cadhome.ru/api/products/product-image/${image}`}
+                src={`https://api.cadhome.ru/api/products/product-image/${image}`}
               ></img>
               <div
                 className={styles.editProductDeleteImage}

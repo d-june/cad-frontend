@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const ContactsPage = () => {
   return (
-    <main className="container">
+    <main className="container main">
       <Breadcrumbs textItems={[{ text: "Контакты" }]} />
       <Contacts />
     </main>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const DeliveryAndPaymentPage = () => {
   return (
-    <main className="container">
+    <main className="container main">
       <Breadcrumbs textItems={[{ text: "Доставка и оплата" }]} />
       <DeliveryAndPayment />
     </main>

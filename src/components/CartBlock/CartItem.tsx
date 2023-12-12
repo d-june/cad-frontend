@@ -41,11 +41,9 @@ const CartItemBlock: FC<CartItemType> = ({
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemImage}>
-        <Image
-          src={`http://api.cadhome.ru/api/products/product-image/${imageUrl}`}
+        <img
+          src={`https://owa.cadhome.ru/api/products/product-image/${imageUrl}`}
           alt="ароматическая свеча"
-          width={200}
-          height={200}
         />
       </div>
 

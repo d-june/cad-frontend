@@ -3,6 +3,9 @@
 import styles from "./AboutCandles.module.scss";
 import Image from "next/image";
 
+import candle1 from "../../../public/candles/aroma-candle-8.jpg";
+import candle2 from "../../../public/candles/aroma-candle-9.jpg";
+
 import { motion } from "framer-motion";
 
 const animationImageRight = {
@@ -91,15 +94,7 @@ const AboutCandles = () => {
           className={styles.aboutCandlesImage}
           variants={animationImageRight}
         >
-          <Image
-            src={
-              "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/pankjruimwxnrjyw14yy.jpg"
-            }
-            alt="ароматическая свеча"
-            width={942}
-            height={637}
-            loading="lazy"
-          ></Image>
+          <img src={candle1.src} alt="ароматическая свеча" />
         </motion.div>
       </motion.div>
 
@@ -113,15 +108,7 @@ const AboutCandles = () => {
           className={styles.aboutCandlesImage}
           variants={animationImageLeft}
         >
-          <Image
-            src={
-              "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/abcnvxguk8qdpayypzhg.jpg"
-            }
-            alt="ароматическая свеча"
-            width={942}
-            height={628}
-            loading="lazy"
-          ></Image>
+          <img src={candle2.src} alt="ароматическая свеча" />
         </motion.div>
         <motion.div
           className={styles.aboutCandlesWrapper}

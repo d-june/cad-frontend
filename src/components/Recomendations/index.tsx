@@ -5,6 +5,9 @@ import FireplaceIcon from "@mui/icons-material/Fireplace";
 import PetsIcon from "@mui/icons-material/Pets";
 import AirIcon from "@mui/icons-material/Air";
 
+import candle1 from "../../../public/candles/aroma-candle-1.jpg";
+import candle2 from "../../../public/candles/aroma-candle-2.jpg";
+
 const Recomendations = () => {
   return (
     <div className={styles.recomendations}>
@@ -43,24 +46,12 @@ const Recomendations = () => {
           </ul>
         </div>
         <div className={styles.recomendationsImage}>
-          <Image
-            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/wlkmqfxdelymddlftf16.jpg"
-            alt="свеча"
-            width={942}
-            height={608}
-            priority
-          ></Image>
+          <img src={candle1.src} alt="свеча" />
         </div>
       </div>
       <div className={styles.accidentPreventionBlock}>
         <div className={styles.recomendationsImage}>
-          <Image
-            src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/uvyw3wz5outosj36mxt5.jpg"
-            alt="свеча"
-            width={942}
-            height={753}
-            loading="lazy"
-          ></Image>
+          <img src={candle2.src} alt="свеча" />
         </div>
         <div className={styles.accidentPreventionContent}>
           <h2>Техника безопасности</h2>

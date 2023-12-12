@@ -20,9 +20,10 @@ const Home = async () => {
   const products = await getAllProducts();
 
   return (
-    <main>
+    <main className="main">
       <Slider />
       <h1>Ароматические свечи ручной работы</h1>
+
       {products && <Products top products={products} />}
       <AboutUs />
       <Advantages />

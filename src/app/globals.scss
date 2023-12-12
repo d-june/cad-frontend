@@ -47,13 +47,15 @@ li {
   margin: 0 auto;
 }
 
-main {
+.main {
   flex: 1 1 auto;
   width: 100%;
   padding-top: 140px;
+  
   @media(max-width: 900px) {
     padding-top: 120px;
-  }
+  };
+  
   @media(max-width: 500px) {
     padding-top: 100px;
   }
@@ -76,7 +78,7 @@ h1 {
     width: 2px;
     background-color: var(--dark);
     position: absolute;
-    bottom: 80px;
+    bottom: 90px;
     left: 50%;
   }
   &::after {

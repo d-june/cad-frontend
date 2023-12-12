@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const AdminPage = () => {
   return (
     <>
-      <main className="container">
+      <main className="container main">
         <AdminLogin />
         <AdminPanel />
       </main>

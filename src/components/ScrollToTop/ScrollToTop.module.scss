@@ -14,6 +14,7 @@
     transition: all 0.3s ease-in-out 0s;
     margin: 2px;
     box-shadow: 0 0 5px var(--grey);
+    z-index: 30;
     @media(any-hover: hover) {
         &:hover {
             color: var(--grey);

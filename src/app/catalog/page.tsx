@@ -18,7 +18,7 @@ const Catalog: NextPage = async () => {
 
   return (
     <>
-      <main className="container">
+      <main className="container main">
         <Breadcrumbs textItems={[{ text: "Каталог" }]} />
         <h1>Каталог ароматических свечей</h1>
         {products && <Products products={products} />}

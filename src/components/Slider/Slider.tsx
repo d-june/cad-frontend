@@ -13,6 +13,11 @@ import styles from "./Slider.module.scss";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+import candle1 from "../../../public/candles/aroma-candle-3.jpg";
+import candle2 from "../../../public/candles/aroma-candle-4.jpg";
+import candle3 from "../../../public/candles/aroma-candle-5.jpg";
+import candle4 from "../../../public/candles/aroma-candle-6.jpg";
+
 const sliderAnimation = {
   hidden: {
     y: -150,
@@ -28,32 +33,28 @@ const sliderAnimation = {
 const carouselImages = [
   {
     id: 1,
-    image:
-      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234343/vlax0ic1kqx7dhfwnyn5.jpg",
+    image: candle1,
     title: "Ароматическая свеча",
     advantage: "Аромаотдача",
     advantageDescription: "Приятные ароматы создают уютную атмосферу",
   },
   {
     id: 2,
-    image:
-      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/s8kq1l2l6qq4nh2sjwcj.jpg",
+    image: candle2,
     title: "Ароматическая свеча",
     advantage: "Экологичность",
     advantageDescription: "Свечи сделаны из натурального воска",
   },
   {
     id: 3,
-    image:
-      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/ssq05gel71tm7ght2600.jpg",
+    image: candle3,
     title: "Ароматическая свеча",
     advantage: "Время горения",
     advantageDescription: "Свеча объемом 200 мл. горит ~ 40 часов",
   },
   {
     id: 4,
-    image:
-      "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/jgp06s024xssxruo6fus.jpg",
+    image: candle4,
     title: "Ароматическая свеча",
     advantage: "Ручная работа",
     advantageDescription: "Каждая свеча уникальна",

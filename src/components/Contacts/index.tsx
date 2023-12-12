@@ -1,6 +1,7 @@
 import styles from "./Contacts.module.scss";
 
 import vkIcon from "../../../public/icons/vk.svg";
+import map from "../../../public/map.jpg";
 import Image from "next/image";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -12,13 +13,7 @@ const Contacts = () => {
   return (
     <div className={styles.contacts + " container"}>
       <div className={styles.contactsImage}>
-        <Image
-          src="https://res.cloudinary.com/dkmd58mmx/image/upload/v1702290995/hvfmvqgqbswau9tj5dix.jpg"
-          width={1226}
-          height={387}
-          alt="карта"
-          priority
-        ></Image>
+        <img src={map.src} alt="карта"></img>
       </div>
       <div className={styles.contactsContent}>
         <p>
@@ -30,7 +25,7 @@ const Contacts = () => {
             <WhatsAppIcon /> 8 911 085 17 45
           </Link>
           <Link href="https://vk.com/cad_candles" target="_blank">
-            <Image src={vkIcon} alt="vk иконка"></Image> cad_candles
+            <img src={vkIcon.src} alt="vk иконка" /> cad_candles
           </Link>
           <Link href="https://t.me/cad_candles" target="_blank">
             <TelegramIcon />

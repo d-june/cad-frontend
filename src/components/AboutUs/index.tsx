@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import { motion } from "framer-motion";
 
+import candle from "../../../public/candles/aroma-candle-7.jpg";
+
 const imageAnimation = {
   hidden: {
     x: -200,
@@ -42,15 +44,7 @@ const AboutUs = () => {
       viewport={{ amount: 0.2, once: true }}
     >
       <motion.div className={styles.aboutImage} variants={imageAnimation}>
-        <Image
-          src={
-            "https://res.cloudinary.com/dkmd58mmx/image/upload/v1702234344/kjrj0nphhpnstgxu5pqw.jpg"
-          }
-          width={600}
-          height={600}
-          alt="ароматическая свеча"
-          loading="lazy"
-        />
+        <img src={candle.src} alt="ароматическая свеча" />
       </motion.div>
       <motion.div className={styles.aboutText} variants={textAnimation}>
         <h2>Тепло и уют в ваш дом</h2>

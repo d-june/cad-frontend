@@ -76,10 +76,10 @@ const Header: FC = () => {
         <motion.header
           className={styles.header}
           variants={{
-            visible: { y: 0 },
+            visible: { y: -1 },
             hidden: { y: "-100%" },
           }}
-          initial="visible"
+          initial="hidden"
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >

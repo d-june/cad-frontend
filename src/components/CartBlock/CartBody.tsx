@@ -50,6 +50,7 @@ const CartBody: FC = () => {
     <div className={styles.cart}>
       <div className="container">
         <div className={styles.cartTop}>
+          <div className="title"></div>
           <h1 className={styles.cartTitle}>
             Корзина <span>(Товаров в корзине: {totalCount})</span>
             <div className={styles.cartClear} onClick={onClearCart}>

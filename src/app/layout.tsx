@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./globals.scss";
 import type { Metadata } from "next";
 import { ReduxProvider } from "@/redux/provider";
 import { Montserrat } from "next/font/google";

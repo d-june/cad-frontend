@@ -15,6 +15,12 @@ const nextConfig = {
                 hostname: 'res.cloudinary.com',
                 port: '',
                 pathname: '/dkmd58mmx/image/upload/**'
+            },
+            {
+                protocol: 'http',
+                hostname: 'cadhome.ru',
+                port: '',
+                pathname: '/**'
             }
         ]
     },

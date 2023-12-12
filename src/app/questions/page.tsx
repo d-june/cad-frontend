@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 const Questions = () => {
   return (
-    <main className="container">
+    <main className="container main">
       <Breadcrumbs textItems={[{ text: "Вопросы и ответы" }]} />
 
       <QuestionsList />

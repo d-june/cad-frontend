@@ -73,7 +73,7 @@ export const ProductsApi = (instance: AxiosInstance) => ({
 
 
 export const getAllProducts = async ()=> {
-  return fetch("http://api.cadhome.ru/api/products", {
+  return fetch("https://owa.cadhome.ru/api/products", {
     next: {revalidate: 10}
   }).then(res => res.json())
  
@@ -81,7 +81,7 @@ export const getAllProducts = async ()=> {
 }
 
 export const getProductById = async (slug:string)=> {
-  const response = await fetch(`http://api.cadhome.ru/api/products/${slug}`);
+  const response = await fetch(`https://owa.cadhome.ru/api/products/${slug}`);
   if(!response.ok) throw new Error("Ошибка сервера. Товар не найден")
   return response.json() 
 }
