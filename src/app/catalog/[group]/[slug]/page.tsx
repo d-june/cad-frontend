@@ -1,5 +1,5 @@
-import { ProductType } from "@/app/types/types";
 import ProductCard from "@/components/ProductCard";
+import { ProductType } from "@/redux/slices/products/types";
 import { getProductById } from "@/services/api/products";
 import { Metadata } from "next";
 
@@ -8,12 +8,6 @@ type Props = {
     slug: string;
   };
 };
-
-async function getData(slug: string) {
-  const response = await fetch(`http://api.cadhome.ru/api/products/${slug}`);
-
-  return response.json();
-}
 
 let product: ProductType;
 

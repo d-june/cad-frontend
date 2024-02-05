@@ -2,11 +2,13 @@ import { GetServerSidePropsContext, NextPageContext } from "next";
 import axios from "axios";
 import { ProductsApi } from "./products";
 import { UsersApi, accessToken } from "./user";
+import { AromasApi } from "./aromas";
 
 
 export type ApiReturnType = {
   products: ReturnType<typeof ProductsApi>;
   users:  ReturnType<typeof UsersApi>;
+  aromas:  ReturnType<typeof AromasApi>;
 };
 
 export const Api = (
@@ -27,6 +29,7 @@ export const Api = (
 
   return {
     products: ProductsApi(instance),
-    users:  UsersApi(instance)
+    users:  UsersApi(instance),
+    aromas:  AromasApi(instance)
   };
 };

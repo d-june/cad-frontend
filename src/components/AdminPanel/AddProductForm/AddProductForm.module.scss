@@ -1,14 +1,8 @@
 .addProductForm {
     width: 100%;
-    margin-top: 20px;
     border: 1px solid var(--grey);
     border-radius: 5px;
     padding: 20px;
-}
-
-.addProductFormItem {
-    width: 100%;
-    margin-bottom: 20px !important;
 }
 
 .addProductFormCloseIcon {
@@ -23,72 +17,32 @@
                 color: var(--main);
             }
         }
-        
     }
 }
 
-.addProductFormSelect {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-    margin-bottom: 20px;
+.addProductFormCharacteristics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
 }
 
-.addProductFormAromas {
-    display: flex ;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-
-    // :global(.MuiInputBase-root) {
-    //     width: 50%;
-    // }
-   
-    input {
-        // flex: 0 0 300px;
-        // width: 50%;
-        // &::before {
-        //     width: 50%;
-        // }
-    }
-    button {
-        // width: 50px;
-        transition: all 0.3s ease-in-out 0s;
-        height: 50px;
-        @media(any-hover: hover) {
-            &:hover {
-                background-color: var(--accent);
-                color: #fff;
-            }
-          }
-        
-    }
-}
-
-.deleteAromaButton {
-    border-color: rgb(228, 44, 81) !important;
-    color: rgb(228, 44, 81) !important;
-
-    @media(any-hover: hover) {
-        &:hover {
-            background-color: rgb(228, 44, 81) !important;
-            border-color: rgb(228, 44, 81);
-            color: #fff !important;
-        }
-    }
- 
-   
-}
-
-.createProductButton {
+.addProductFormButton {
     width: 100%;
     height: 50px;
     margin-top: 20px !important;
 }
 
-.addImageInput {
+.addProductFormImageInput {
+    display: flex;
+    gap: 20px;
+    align-items: center;
     margin-top: 20px !important;
     margin-bottom: 20px !important;
+}
+
+
+.addProductFormError {
+    color: red;
+    font-size: 14px;
 }

@@ -3,13 +3,13 @@ import { Alert, Button, TextField } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginFormSchema } from "../utils/schemas/formsValidation";
-import FormField from "../FormField";
+import FormField from "../FormFields/FormField";
 import styles from "./AuthPopup.module.scss";
-import { CreateUserDto, LoginDto } from "../../services/api/types";
-import { setCookie } from "nookies";
+import { LoginDto } from "../../services/api/types";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUserData } from "../../redux/slices/user";
 import { Api } from "@/services/api";
+import Input from "../FormFields/InputField";
 
 interface LoginFormProps {
   onClickRegister?: () => void;
@@ -40,8 +40,8 @@ const Login: FC<LoginFormProps> = ({ onClickRegister }) => {
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className={styles.popupFields}>
-            <FormField name="email" label="Email" />
-            <FormField name="password" label="Пароль" />
+            <Input name="email" label="Email" />
+            <Input name="password" label="Пароль" type="password" />
             {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
           </div>
           <div className={styles.popupBottom}>

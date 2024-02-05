@@ -1,16 +1,16 @@
 "use client";
 
 import * as React from "react";
+
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import styles from "./QuestionsList.module.scss";
-
-import Image from "next/image";
-
 import candle from "../../../public/candles/aroma-candle-10.jpg";
+import LoadableImage from "../LoadableImage/LoadableImage";
+
+import styles from "./QuestionsList.module.scss";
 
 const questionsListData = [
   {
@@ -75,6 +75,7 @@ export default function QuestionsList() {
     <div className={styles.questionsWrapper}>
       <div className={styles.questionsList}>
         <h1>Вопросы и ответы</h1>
+
         {questionsListData.map((question) => {
           return (
             <Accordion
@@ -99,7 +100,7 @@ export default function QuestionsList() {
         })}
       </div>
       <div className={styles.questionsListImage}>
-        <img src={candle.src} alt="ароматическая свеча" />
+        <LoadableImage src={candle.src} alt="ароматическая свеча" />
       </div>
     </div>
   );

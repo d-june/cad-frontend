@@ -1,12 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import NorthIcon from "@mui/icons-material/North";
 
 import styles from "./ScrollToTop.module.scss";
-import { Button } from "@mui/material";
 
 const ScrollToTop = () => {
   const [scroll, setScroll] = useState(0);

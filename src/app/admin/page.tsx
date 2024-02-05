@@ -1,7 +1,3 @@
-import About from "@/components/About";
-import AuthPopup from "@/components/Auth/AuthPopup";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import LoginButton from "@/components/Auth/LoginButton/LoginButton";
 import { Metadata } from "next";
 import AdminLogin from "@/components/Auth/AdminLogin";
 import AdminPanel from "@/components/AdminPanel";

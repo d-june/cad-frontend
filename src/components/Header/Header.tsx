@@ -1,16 +1,16 @@
 "use client";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "./Header.module.scss";
+import { Navigation } from "../Navigation";
+import { useMotionValueEvent, useScroll, motion } from "framer-motion";
+
+import HeaderCart from "./HeaderCart";
+import BurgerMenu from "../BurgerMenu";
 import Logo from "../Logo/Logo";
 
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import { Navigation } from "../Navigation";
-import { NavItem } from "@/app/types/types";
-import { FC, useEffect, useState } from "react";
 
-import HeaderCart from "./HeaderCart";
-import { useMotionValueEvent, useScroll, motion } from "framer-motion";
-import BurgerMenu from "../BurgerMenu";
+import styles from "./Header.module.scss";
 
 export const navigationShort = [
   {
@@ -49,7 +49,6 @@ const Header: FC = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    console.log(scrollY.getPrevious());
     if (latest > previous && latest > 0 && previous > 1) {
       setHidden(true);
     } else {

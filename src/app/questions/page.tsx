@@ -1,5 +1,4 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Header } from "@/components/Header/Header";
 import QuestionsList from "@/components/QuestionsList";
 import { Metadata } from "next";
 
@@ -16,7 +15,6 @@ const Questions = () => {
   return (
     <main className="container main">
       <Breadcrumbs textItems={[{ text: "Вопросы и ответы" }]} />
-
       <QuestionsList />
     </main>
   );

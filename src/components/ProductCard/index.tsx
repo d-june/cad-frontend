@@ -1,79 +1,74 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
-import { ProductType } from "@/app/types/types";
-import Breadcrumbs from "../Breadcrumbs";
-import { useDispatch, useSelector } from "react-redux";
-
-import styles from "./ProductCard.module.scss";
-import { Button, dividerClasses } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Api } from "@/services/api";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper/modules";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
+import { CartItemType } from "@/redux/slices/cart/types";
+import {
+  addProduct,
+  minusProduct,
+  plusProduct,
+  removeProduct,
+} from "@/redux/slices/cart/slice";
+import { getProductBySlug } from "@/redux/slices/products/asyncActions";
+import { selectProductsData } from "@/redux/slices/products/selectors";
+import { selectCart } from "@/redux/slices/cart/selectors";
+
+import Breadcrumbs from "../Breadcrumbs";
+import AromaPopup from "./AromaPopup";
+import LoadableImage from "../LoadableImage/LoadableImage";
+
+import { Button } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+import styles from "./ProductCard.module.scss";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import { CartItemType } from "@/redux/slices/cart/types";
-import { addProduct } from "@/redux/slices/cart/slice";
-import { AppState } from "@/redux/store";
-import Image from "next/image";
 
 type ProductCardProps = {
   slug: string;
 };
 
 const ProductCard: FC<ProductCardProps> = ({ slug }) => {
-  const dispatch = useDispatch();
+  const { currentProduct } = useAppSelector(selectProductsData);
+  const dispatch = useAppDispatch();
 
-  const [product, setProduct] = useState<ProductType>();
-  const [checkedAroma, setCheckedAroma] = useState("");
   const [cartDisabled, setCartDisabled] = useState(true);
 
-  const cartProducts = useSelector(
-    (state: AppState) => state.cartSlice.products
-  );
+  const { products } = useAppSelector(selectCart);
 
-  const checkedProduct: any = product?.aromas?.find((aromas) => {
-    return aromas.name === checkedAroma;
-  });
-
-  const checkedProductInCart = cartProducts.filter(
-    (cartProduct: CartItemType) =>
-      cartProduct.slug === slug &&
-      cartProduct.aroma.name === checkedProduct?.name
+  const checkedProductInCart = products.filter(
+    (cartProduct: CartItemType) => cartProduct.slug === slug
   );
   const [addedCount, setAddedCount] = useState(
-    checkedProductInCart.length !== 0 ? checkedProductInCart[0].aroma.count : 0
+    checkedProductInCart.length !== 0 ? checkedProductInCart[0].count : 0
   );
 
   const onClickAddToCart = () => {
     let addedProduct: CartItemType;
-    if (product) {
+    if (currentProduct) {
       addedProduct = {
-        id: product.id,
-        slug: product.slug,
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        imageUrl: product.images && product.images[0],
-        aroma: { id: checkedProduct.id, name: checkedAroma, count: addedCount },
-        availableCount: checkedProduct?.count,
-        color: product?.color,
-        volume: product?.volume,
+        id: currentProduct.id,
+        slug: currentProduct.slug,
+        title: currentProduct.title,
+        description: currentProduct.description,
+        price: currentProduct.price,
+        imageUrl: currentProduct.images && currentProduct.images[0],
+        aroma: currentProduct.aroma,
+        count: addedCount,
+        availableCount: currentProduct.available,
+        color: currentProduct?.color,
+        volume: currentProduct?.volume,
       };
       dispatch(addProduct(addedProduct));
     }
   };
 
   useEffect(() => {
-    Api()
-      .products.getBySlug(slug)
-      .then((res) => {
-        setProduct(res);
-      });
+    dispatch(getProductBySlug(slug));
   }, [slug]);
 
   useEffect(() => {
@@ -86,22 +81,25 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
 
   useEffect(() => {
     if (checkedProductInCart.length !== 0) {
-      setAddedCount(checkedProductInCart[0].aroma.count);
+      setAddedCount(checkedProductInCart[0].count);
     } else {
-      setAddedCount(0);
+      setAddedCount(1);
     }
-  }, [checkedAroma]);
+  }, [checkedProductInCart]);
 
   const onClickPlus = () => {
-    setAddedCount(addedCount + 1);
+    if (currentProduct) {
+      dispatch(plusProduct({ id: currentProduct.id }));
+    }
   };
 
   const onClickMinus = () => {
-    setAddedCount(addedCount - 1);
-  };
-
-  const handleAromaCheck = (aroma: string) => {
-    setCheckedAroma(aroma);
+    if (currentProduct) {
+      if (checkedProductInCart[0].count === 1) {
+        dispatch(removeProduct({ id: currentProduct.id }));
+      }
+      dispatch(minusProduct({ id: currentProduct.id }));
+    }
   };
 
   return (
@@ -109,7 +107,7 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
       <Breadcrumbs
         textItems={[
           { text: "Каталог", link: "/catalog" },
-          { text: `${product && product.title}` },
+          { text: `${currentProduct && currentProduct.title}` },
         ]}
       />
       <div className={styles.productCard}>
@@ -122,12 +120,12 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
             navigation
             className={styles.swiper}
           >
-            {product?.images?.map((image: any) => {
+            {currentProduct?.images?.map((image: string, index: number) => {
               return (
-                <SwiperSlide key={image.id}>
-                  <img
+                <SwiperSlide key={index}>
+                  <LoadableImage
                     src={`https://owa.cadhome.ru/api/products/product-image/${image}`}
-                    alt={product.title}
+                    alt={currentProduct.title}
                   />
                 </SwiperSlide>
               );
@@ -136,51 +134,37 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
         </div>
         <div className={styles.productCardAbout}>
           <div className={styles.productTitle}>
-            <h1>{product?.title}</h1>
+            <h1>{currentProduct?.title}</h1>
           </div>
 
           <div className={styles.productCardContent}>
-            {product?.generalGroup === "Свечи" && (
+            {currentProduct?.generalGroup === "Свечи" && (
               <p>Ароматическая свеча из соевого воска</p>
             )}
-            {product?.generalGroup === "Подсвечники" && (
+            {currentProduct?.generalGroup === "Подсвечники" && (
               <p>Подсвечник из гипса</p>
             )}
 
-            <p className={styles.productCardPrice}>Цена: {product?.price} ₽</p>
-            <div className={styles.productCardAroma}>
-              <div className={styles.productCardAromaItems}>
-                {product?.aromas?.map((aroma) => {
-                  return (
-                    <div
-                      key={aroma.id}
-                      className={
-                        checkedAroma === aroma.name
-                          ? styles.productCardAromaItem +
-                            " " +
-                            styles.productCardAromaItemChecked
-                          : styles.productCardAromaItem
-                      }
-                    >
-                      <input
-                        id={aroma.name}
-                        type="radio"
-                        name="aroma"
-                        onClick={() => handleAromaCheck(aroma.name)}
-                      />
-                      <label htmlFor={aroma.name}>{aroma.name}</label>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            {product?.aromas?.length ? (
-              <div>
-                {checkedProductInCart.length !== 0 ? (
-                  <Button disabled={true}>Товар в корзине</Button>
-                ) : (
-                  <div className={styles.card}>
-                    {checkedAroma ? (
+            {currentProduct && (
+              <AromaPopup
+                key={currentProduct.id}
+                aromaName={currentProduct?.aroma}
+              />
+            )}
+
+            <p className={styles.productCardPrice}>
+              Цена: {currentProduct?.price} ₽
+            </p>
+
+            {currentProduct && currentProduct.available > 0 ? (
+              <>
+                <div className={styles.productCardAvailable}>
+                  В наличии: {currentProduct?.available} шт.
+                </div>
+
+                <div className={styles.productAddToCart}>
+                  <div className={styles.productAddToCartButton}>
+                    {checkedProductInCart.length ? (
                       <div className={styles.productChangeCount}>
                         <Button
                           onClick={onClickMinus}
@@ -195,41 +179,24 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
                         <Button
                           onClick={onClickPlus}
                           className={styles.productButton}
-                          disabled={addedCount === checkedProduct?.count}
+                          disabled={addedCount === currentProduct.available}
                         >
                           +
                         </Button>
                       </div>
                     ) : (
-                      <div>Выберите пожалуйста аромат</div>
+                      <Button
+                        onClick={onClickAddToCart}
+                        className={styles.productCart}
+                        disabled={currentProduct.available < 1}
+                      >
+                        В корзину
+                        <ShoppingCartIcon />
+                      </Button>
                     )}
-
-                    <div className={styles.productAddToCart}>
-                      <div className={styles.productAddToCartButton}>
-                        <Button
-                          onClick={onClickAddToCart}
-                          className={styles.productCart}
-                          disabled={cartDisabled}
-                        >
-                          В корзину
-                          <ShoppingCartIcon />
-                        </Button>
-                      </div>
-
-                      {checkedProduct && (
-                        <div>
-                          {checkedProductInCart.length !== 0
-                            ? "В наличии " +
-                              (checkedProduct.count -
-                                checkedProductInCart[0]?.aroma.count) +
-                              "  шт."
-                            : "В наличии " + checkedProduct.count + "  шт."}
-                        </div>
-                      )}
-                    </div>
                   </div>
-                )}
-              </div>
+                </div>
+              </>
             ) : (
               "Товара нет в наличии"
             )}
@@ -240,15 +207,16 @@ const ProductCard: FC<ProductCardProps> = ({ slug }) => {
         <div className={styles.productCardCharacteristics}>
           <h3>Характеристики:</h3>
           <ul>
-            <li>Объем: {product?.volume} мл.</li>
-            <li>Вес: {product?.weight} гр.</li>
+            <li>Объем: {currentProduct?.volume} мл.</li>
+            <li>Вес: {currentProduct?.weight} гр.</li>
             <li>
-              Размеры ШхВхГ: {product?.width}x{product?.height}x{product?.depth}
+              Размеры ШхВхГ: {currentProduct?.width}x{currentProduct?.height}x
+              {currentProduct?.depth}
             </li>
-            <li>Время горения: {product?.burningTime}</li>
+            <li>Время горения: {currentProduct?.burningTime}</li>
           </ul>
         </div>
-        <p>{product?.description}</p>
+        <p>{currentProduct?.description}</p>
       </div>
     </div>
   );

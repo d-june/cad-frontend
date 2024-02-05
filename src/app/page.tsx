@@ -4,8 +4,7 @@ import AboutCandles from "@/components/AboutCandles";
 import AboutUs from "@/components/AboutUs";
 import Advantages from "@/components/Advantages";
 import Slider from "@/components/Slider/Slider";
-import Products from "@/components/Products";
-import { getAllProducts } from "@/services/api/products";
+import TopProducts from "@/components/TopProducts";
 
 export const metadata: Metadata = {
   title: "Ароматические свечи ручной работы в Санкт-Петербурге | CAD",
@@ -17,14 +16,11 @@ export const metadata: Metadata = {
 };
 
 const Home = async () => {
-  const products = await getAllProducts();
-
   return (
-    <main className="main">
+    <main className="main container">
       <Slider />
       <h1>Ароматические свечи ручной работы</h1>
-
-      {products && <Products top products={products} />}
+      <TopProducts />
       <AboutUs />
       <Advantages />
       <AboutCandles />

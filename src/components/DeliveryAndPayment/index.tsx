@@ -1,7 +1,9 @@
-import styles from "./DeliveryAndPayment.module.scss";
+"use client";
+
+import LoadableImage from "../LoadableImage/LoadableImage";
 import boxCandleWhitePhoto from "../../../public/candles/aroma-candle-11.jpg";
 import boxCandleBlackPhoto from "../../../public/candles/aroma-candle-12.jpg";
-import Image from "next/image";
+import styles from "./DeliveryAndPayment.module.scss";
 
 const DeliveryAndPayment = () => {
   return (
@@ -23,7 +25,7 @@ const DeliveryAndPayment = () => {
         </div>
 
         <div className={styles.deliveryAndPaymentImage}>
-          <img
+          <LoadableImage
             src={boxCandleWhitePhoto.src}
             alt="свеча в белом подсвечнике в коробке"
           />
@@ -32,7 +34,7 @@ const DeliveryAndPayment = () => {
 
       <div className={styles.delivery}>
         <div className={styles.deliveryAndPaymentImage}>
-          <img
+          <LoadableImage
             src={boxCandleBlackPhoto.src}
             alt="свеча в черном подсвечнике в коробке"
           />

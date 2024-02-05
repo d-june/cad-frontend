@@ -1,0 +1,47 @@
+.filterTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--grey);
+}
+
+.filterTitle {
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.filterIcon {
+    padding: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out 0s;
+    svg {
+        font-size: 30px;
+    }
+
+    @media(any-hover: hover) {
+        &:hover {
+            color: var(--accent);
+        }
+    }
+}
+
+.filterBottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 10px 20px 10px;
+    border-top: 1px solid var(--grey);
+    z-index: 2;
+
+    button {
+        @media(any-hover: hover) {
+            &:hover {
+                border: 1px solid #229283;
+                color: #fff;
+                background: #229283;
+                box-shadow: none;
+            }
+        }
+    }
+}

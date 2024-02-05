@@ -1,86 +1,97 @@
-.topProducts {
+.products {
   width: 100%;
+}
+
+.catalogFilterButton {
  
+}
+
+.catalogFilterWrapper {
+  position: absolute;
+  top: 150px;
+  left: 0;
+ overflow: hidden;
+ height: calc(100vh - 150px) ;
+ min-width: 350px;
+z-index: -1;
+background-color: #fff;
+transition: all 0.4s ease-in-out 0s;
+  @media (max-width: 900px) {
+    top: 120px;
+    height: calc(100vh - 120px) ;
+    width: 100%;
+
+  }
+  @media (max-width: 500px) {
+    top: 100px;
+    height: calc(100vh - 100px) ;
+  }
+
+}
+
+.catalogFilterWrapperActive {
+  z-index: 20;
+  background-color: #fff;
+  
+}
+
+.catalogFilter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: -100%;
+  background-color: #fff;
+
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out 0s;
+  z-index: 20;
+  padding-bottom: 20px;
+  overflow: auto;
+  padding-right: 15px;
+  @media(max-width: 500px) {
+    min-width: 100%;
+    padding-right: 0
+  }
+}
+
+.catalogFilterWrapperActive > .catalogFilterActive {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+
 }
 
 
 
-.topProductsWrapper {
+.productsWrapper {
 
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 23%);
     gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+   
 
     @media(max-width: 1300px) {
-      grid-template-columns: repeat(2, auto);
+      grid-template-columns: repeat(2, 47%);
     }
     @media(max-width: 650px) {
       grid-template-columns: 1fr;
     }
 }
 
+.productsSelection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
   
-  .topProductsCatalog {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    line-height: 1em;
-    text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 500;
-    margin-top: 20px;
-
-    transition: all 0.3s ease-in-out 0s;
-    svg {
-      font-size: 80px;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 100px;
-      background-color: var(--dark);
-      bottom: 30px;
-      left: 50%;
   
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 50px;
-      background-color: var(--dark);
-      top: 30px;
-      left: 50%;
-
-    }
-    @media(any-hover: hover) {
-      &:hover {
-        color: var(--accent);
-   
-      }
-    }
-
-   
-
-    @media(max-width: 650px) {
-      font-size: 20px;
-      max-width: 100vw;
-      margin-top: 70px;
-      &::before {
-        height: 40px;
-        bottom: 30px;
-      }
-      &::after {
-        height: 40px;
-        top: 30px;
-      }
-    }
-  }
-
 
 
 

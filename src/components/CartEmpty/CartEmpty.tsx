@@ -1,9 +1,9 @@
 import React, { FC } from "react";
+import Link from "next/link";
 
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 import styles from "./CartEmpty.module.scss";
-import Link from "next/link";
 
 const CartEmpty: FC = () => {
   return (

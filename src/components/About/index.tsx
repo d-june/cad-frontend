@@ -1,13 +1,13 @@
+"use client";
+import LoadableImage from "../LoadableImage/LoadableImage";
 import styles from "./About.module.scss";
-import Image from "next/image";
-
 import candle from "../../../public/candles/aroma-candle-10.jpg";
 
 const About = () => {
   return (
     <section className={styles.about}>
       <div className={styles.aboutImage}>
-        <img src={candle.src} alt="ароматическая свеча" />
+        <LoadableImage src={candle.src} alt="ароматическая свеча" />
       </div>
       <div className={styles.aboutContent}>
         <h1 className={styles.aboutTitle}>О нас</h1>

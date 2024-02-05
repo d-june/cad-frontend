@@ -1,19 +1,20 @@
-import styles from "./Contacts.module.scss";
-
-import vkIcon from "../../../public/icons/vk.svg";
-import map from "../../../public/map.jpg";
-import Image from "next/image";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+"use client";
 import Link from "next/link";
 
+import TelegramIcon from "@mui/icons-material/Telegram";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+import LoadableImage from "../LoadableImage/LoadableImage";
+import vkIcon from "../../../public/icons/vk.svg";
+import map from "../../../public/map.jpg";
+
+import styles from "./Contacts.module.scss";
 
 const Contacts = () => {
   return (
     <div className={styles.contacts + " container"}>
       <div className={styles.contactsImage}>
-        <img src={map.src} alt="карта"></img>
+        <LoadableImage src={map.src} alt="карта" />
       </div>
       <div className={styles.contactsContent}>
         <p>

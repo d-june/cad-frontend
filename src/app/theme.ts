@@ -3,24 +3,25 @@
 import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
+  
   palette: {
     primary: {
       main: "#18333E",
       
     },
   },
+  typography: {
+    fontFamily: "Montserrat, sans-serif"
+  },
   components: {
+
     MuiButtonBase: {
       defaultProps: {
         disableRipple: true,
         
       },
     },
-    MuiTypography: {
-      defaultProps: {
-        fontFamily: ["Montserrat"],
-      },
-    },
+
     MuiPaper: {
       styleOverrides: {
         rounded: {
@@ -90,5 +91,6 @@ export const theme = createTheme({
        
       },
     },
+    
   },
 });

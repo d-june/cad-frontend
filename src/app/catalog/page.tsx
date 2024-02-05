@@ -1,8 +1,6 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { Header } from "@/components/Header/Header";
 import Products from "@/components/Products";
-import { getAllProducts } from "@/services/api/products";
-import { GetServerSideProps, Metadata, NextPage } from "next";
+import { Metadata, NextPage } from "next";
 
 export const metadata: Metadata = {
   title: "Каталог ароматических свечей | CAD",
@@ -14,14 +12,12 @@ export const metadata: Metadata = {
 };
 
 const Catalog: NextPage = async () => {
-  const products = await getAllProducts();
-
   return (
     <>
       <main className="container main">
         <Breadcrumbs textItems={[{ text: "Каталог" }]} />
         <h1>Каталог ароматических свечей</h1>
-        {products && <Products products={products} />}
+        <Products />
       </main>
     </>
   );

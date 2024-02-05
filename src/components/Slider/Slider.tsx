@@ -1,22 +1,20 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper/modules";
-
-import "swiper/scss";
-import "swiper/scss/navigation";
-import "swiper/scss/pagination";
-import Item from "./Item";
-
-import styles from "./Slider.module.scss";
-
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
+import Item from "./Item";
 
 import candle1 from "../../../public/candles/aroma-candle-3.jpg";
 import candle2 from "../../../public/candles/aroma-candle-4.jpg";
 import candle3 from "../../../public/candles/aroma-candle-5.jpg";
 import candle4 from "../../../public/candles/aroma-candle-6.jpg";
+
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import styles from "./Slider.module.scss";
 
 const sliderAnimation = {
   hidden: {

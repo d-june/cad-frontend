@@ -1,7 +1,9 @@
-import Link from "next/link";
-import styles from "./Breadcrumbs.module.scss";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { FC } from "react";
+import Link from "next/link";
+
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+
+import styles from "./Breadcrumbs.module.scss";
 
 type BreadcrumbsProps = {
   textItems: Array<textItem>;
@@ -20,11 +22,12 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ textItems }) => {
 
   return (
     <div className={styles.breadcrumbs}>
-      <Link href="/" className={styles.breadcrumbsHome}>
-        <HomeOutlinedIcon />
-      </Link>
-      /
       <ul>
+        <li>
+          <Link href="/" className={styles.breadcrumbsHome}>
+            <HomeOutlinedIcon /> /
+          </Link>
+        </li>
         {itemsArray &&
           itemsArray.map((item, index) => {
             if (item.text !== "undefined" && item.link) {

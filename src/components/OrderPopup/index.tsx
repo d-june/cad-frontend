@@ -1,4 +1,17 @@
 import React, { FC, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useForm } from "react-hook-form";
+
+import { CartItemType } from "@/redux/slices/cart/types";
+import { clearCart } from "@/redux/slices/cart/slice";
+import {
+  sendOrderToMail,
+  updateAvailableCountById,
+} from "@/redux/slices/products/asyncActions";
+import { selectProductsData } from "@/redux/slices/products/selectors";
+
+import TextMaskCustom from "./TextMaskCustom";
+
 import {
   Alert,
   Button,
@@ -9,18 +22,10 @@ import {
   RadioGroup,
   TextField,
 } from "@mui/material";
-
-import { useForm } from "react-hook-form";
+import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { AromaType, ProductType } from "@/app/types/types";
-import { Api } from "@/services/api";
-import { CartItemType } from "@/redux/slices/cart/types";
-
 import styles from "./OrderPopup.module.scss";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import { useAppDispatch } from "@/redux/hooks";
-import { clearCart } from "@/redux/slices/cart/slice";
 
 interface AuthPopupProps {
   onClose: () => void;
@@ -40,6 +45,7 @@ const OrderPopup: FC<AuthPopupProps> = ({
   const [errorMessage, setErrorMessage] = useState("");
   const [addressVisible, setAddressVisible] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
+  const { products } = useAppSelector(selectProductsData);
 
   const dispatch = useAppDispatch();
 
@@ -51,70 +57,39 @@ const OrderPopup: FC<AuthPopupProps> = ({
 
   const text = productsCart
     .map((product) => {
-      return ` ${product.color} ${product.title} ${product.volume} мл. (Аромат: ${product.aroma.name}): ${product.aroma.count} шт.`.toLowerCase();
+      return ` ${product.color} ${product.title} ${product.volume} мл.: ${product.count} шт.`.toLowerCase();
     })
     .toLocaleString();
 
-  const changeAromaCount = async () => {
-    const products = await Api().products.getAll();
+  const changeCount = async () => {
     productsCart.map((productCart) => {
-      const product = products.filter((product: ProductType) => {
-        return product.id === productCart.id;
-      });
-
-      const aroma = product[0].aromas.filter((aroma: AromaType) => {
-        return aroma.id === productCart.aroma.id;
-      });
-
-      if (Number(productCart.aroma.count) < aroma[0].count) {
-        const newAroma = {
-          id: productCart.aroma.id,
-          name: productCart.aroma.name,
-          count: aroma[0].count - Number(productCart.aroma.count),
-          productId: productCart.id,
-        };
-        try {
-          Api().products.updateAroma(newAroma);
-        } catch (err: any) {
-          console.warn("Не удалось обновить аромат", err);
-          if (err.response) {
-            // setErrorMessage(err.response.data.message);
-          }
+      products.map((product) => {
+        if (product.id === productCart.id) {
+          dispatch(
+            updateAvailableCountById({
+              id: productCart.id,
+              available: Number(product.available) - Number(productCart.count),
+            })
+          );
         }
-      } else {
-        try {
-          Api().products.deleteAroma(productCart.aroma.id);
-        } catch (err: any) {
-          console.warn("Не удалось обновить аромат", err);
-          if (err.response) {
-            // setErrorMessage(err.response.data.message);
-          }
-        }
-      }
+      });
     });
   };
 
   const onSubmit = async (dto: any) => {
-    const delivery = dto.delivery === "pickup" ? "самовывоз" : "доставка";
+    dto.delivery = dto.delivery === "pickup" ? "самовывоз" : "доставка";
+    const order = { ...dto, text, totalPrice };
     try {
-      const data = await Api().products.sendOrder(
-        dto.name,
-        dto.phone,
-        dto.email,
-        delivery,
-        dto.address,
-        text,
-        totalPrice
-      );
+      dispatch(sendOrderToMail(order));
       setErrorMessage("");
     } catch (err: any) {
-      console.warn("Ошибка при регистрации", err);
+      console.warn("Ошибка при отправлении письма", err);
       if (err.response) {
         setErrorMessage(err.response.data.message);
       }
     }
 
-    changeAromaCount();
+    changeCount();
 
     onClose();
 
@@ -142,14 +117,23 @@ const OrderPopup: FC<AuthPopupProps> = ({
                 fullWidth
                 className={styles.orderInput}
               />
+
               <TextField
                 label="Номер телефона"
-                {...register("phone", { required: true })}
+                type="tel"
+                {...register("phone", {
+                  required: true,
+                })}
                 fullWidth
                 className={styles.orderInput}
+                InputProps={{
+                  inputComponent: TextMaskCustom,
+                }}
               />
+
               <TextField
                 label="email"
+                type="email"
                 {...register("email", { required: false })}
                 fullWidth
                 className={styles.orderInput}
@@ -225,7 +209,7 @@ const OrderPopup: FC<AuthPopupProps> = ({
               <SentimentSatisfiedAltIcon className={styles.orderSuccessIcon} />
             </div>
             <p className={styles.orderSuccessText}>
-              Менеджер связется с Вами как только мы соберем заказ.
+              Менеджер свяжется с Вами, как только мы соберем заказ.
             </p>
           </div>
         </DialogContent>

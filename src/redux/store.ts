@@ -2,7 +2,9 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import {userReducer} from "./slices/user";
 import { createWrapper } from "next-redux-wrapper";
 import  cartSlice  from './slices/cart/slice'
-import adminPanelProductsSlice from './slices/adminPanelProducts/slice'
+import filterSlice from './slices/filter/slice'
+import productsSlice from './slices/products/slice'
+import aromasSlice from './slices/aromas/slice'
 
 
 export function makeStore() {
@@ -10,7 +12,9 @@ export function makeStore() {
     reducer: {
         userReducer,
         cartSlice,
-        adminPanelProductsSlice
+        filterSlice,
+        productsSlice,
+        aromasSlice
     }
 });
 }

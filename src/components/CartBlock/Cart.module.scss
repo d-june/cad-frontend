@@ -296,7 +296,8 @@
 .cartBottom {
   width: 763px;
   padding: 20px 38px;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 150px;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
@@ -325,16 +326,7 @@
   }
 }
 
-.cartMinOrder {
+.cartBottomText {
   font-size: 12px;
   line-height: 14px;
-  span {
-    color: rgba(97, 137, 103, 1);
-  }
-  p {
-    &:not(:last-child) {
-      margin-bottom: 11px;
-    }
-  }
-
 }

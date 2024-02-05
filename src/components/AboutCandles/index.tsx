@@ -1,12 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
+import LoadableImage from "../LoadableImage/LoadableImage";
+
 import styles from "./AboutCandles.module.scss";
-import Image from "next/image";
 
 import candle1 from "../../../public/candles/aroma-candle-8.jpg";
 import candle2 from "../../../public/candles/aroma-candle-9.jpg";
-
-import { motion } from "framer-motion";
 
 const animationImageRight = {
   hidden: {
@@ -94,7 +94,7 @@ const AboutCandles = () => {
           className={styles.aboutCandlesImage}
           variants={animationImageRight}
         >
-          <img src={candle1.src} alt="ароматическая свеча" />
+          <LoadableImage src={candle1.src} alt="ароматическая свеча" />
         </motion.div>
       </motion.div>
 
@@ -108,7 +108,7 @@ const AboutCandles = () => {
           className={styles.aboutCandlesImage}
           variants={animationImageLeft}
         >
-          <img src={candle2.src} alt="ароматическая свеча" />
+          <LoadableImage src={candle2.src} alt="ароматическая свеча" />
         </motion.div>
         <motion.div
           className={styles.aboutCandlesWrapper}

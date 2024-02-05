@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./Footer.module.scss";
-import { NavItem } from "@/app/types/types";
 import { Navigation } from "../Navigation";
-import Logo from "../Logo/Logo";
+
 import ScrollToTop from "../ScrollToTop";
+
+import styles from "./Footer.module.scss";
 
 export const navigationFull = [
   {

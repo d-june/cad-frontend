@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./Advantages.module.scss";
-import ForestIcon from "@mui/icons-material/Forest";
-
 import RestoreOutlinedIcon from "@mui/icons-material/RestoreOutlined";
 import VolunteerActivismOutlinedIcon from "@mui/icons-material/VolunteerActivismOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import ForestIcon from "@mui/icons-material/Forest";
+
+import styles from "./Advantages.module.scss";
 
 import { motion } from "framer-motion";
 

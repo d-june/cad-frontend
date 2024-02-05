@@ -1,13 +1,12 @@
 "use client";
 
-import { NavItem } from "@/app/types/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Navigation.module.scss";
 import { FC } from "react";
 
 type PropsType = {
-  navItems: NavItem[];
+  navItems: any;
   column?: boolean;
   onClick?: () => void;
 };
@@ -24,7 +23,7 @@ const Navigation: FC<PropsType> = ({ navItems, column, onClick }) => {
             : styles.navigation
         }
       >
-        {navItems.map((item: NavItem) => {
+        {navItems.map((item: any) => {
           const isActive = pathname === item.href;
           return (
             <li

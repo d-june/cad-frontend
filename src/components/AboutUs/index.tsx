@@ -1,9 +1,9 @@
 "use client";
-import styles from "./AboutUs.module.scss";
-import Image from "next/image";
 
 import { motion } from "framer-motion";
+import LoadableImage from "../LoadableImage/LoadableImage";
 
+import styles from "./AboutUs.module.scss";
 import candle from "../../../public/candles/aroma-candle-7.jpg";
 
 const imageAnimation = {
@@ -44,7 +44,7 @@ const AboutUs = () => {
       viewport={{ amount: 0.2, once: true }}
     >
       <motion.div className={styles.aboutImage} variants={imageAnimation}>
-        <img src={candle.src} alt="ароматическая свеча" />
+        <LoadableImage src={candle.src} alt="ароматическая свеча" />
       </motion.div>
       <motion.div className={styles.aboutText} variants={textAnimation}>
         <h2>Тепло и уют в ваш дом</h2>

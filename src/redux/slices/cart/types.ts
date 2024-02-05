@@ -4,7 +4,8 @@ export type CartItemType = {
   title: string;
   description: string;
   price: number;
-  aroma: AromaType;
+  aroma: string;
+  count: number;
   availableCount?: number,
   imageUrl?: string,
   color: string, 
@@ -12,11 +13,6 @@ export type CartItemType = {
 };
 
 
-type AromaType = {
-  id: number;
-  name: string; 
-  count: number;
-}
 
 export interface CartSliceState {
   totalPrice: number;

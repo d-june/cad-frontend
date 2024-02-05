@@ -1,10 +1,9 @@
 "use client";
-
-import Image from "next/image";
-import styles from "./Slider.module.scss";
+import Link from "next/link";
 
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import Link from "next/link";
+
+import styles from "./Slider.module.scss";
 
 function Item({ item }: any) {
   return (

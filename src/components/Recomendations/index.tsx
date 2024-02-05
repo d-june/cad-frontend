@@ -1,5 +1,4 @@
-import styles from "./Recomendations.module.scss";
-import Image from "next/image";
+"use client";
 
 import FireplaceIcon from "@mui/icons-material/Fireplace";
 import PetsIcon from "@mui/icons-material/Pets";
@@ -7,6 +6,9 @@ import AirIcon from "@mui/icons-material/Air";
 
 import candle1 from "../../../public/candles/aroma-candle-1.jpg";
 import candle2 from "../../../public/candles/aroma-candle-2.jpg";
+import LoadableImage from "../LoadableImage/LoadableImage";
+
+import styles from "./Recomendations.module.scss";
 
 const Recomendations = () => {
   return (
@@ -46,12 +48,12 @@ const Recomendations = () => {
           </ul>
         </div>
         <div className={styles.recomendationsImage}>
-          <img src={candle1.src} alt="свеча" />
+          <LoadableImage src={candle1.src} alt="свеча" />
         </div>
       </div>
       <div className={styles.accidentPreventionBlock}>
         <div className={styles.recomendationsImage}>
-          <img src={candle2.src} alt="свеча" />
+          <LoadableImage src={candle2.src} alt="свеча" />
         </div>
         <div className={styles.accidentPreventionContent}>
           <h2>Техника безопасности</h2>

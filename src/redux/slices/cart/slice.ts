@@ -16,32 +16,30 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct(state, action: PayloadAction<CartItemType>) {
-      
         state.products.push({ ...action.payload });
         state.totalPrice = calcTotalPrice(state.products);
- 
     },
-    plusProduct(state, action: PayloadAction<{id: string, aroma: string}>) {
+    plusProduct(state, action: PayloadAction<{id: string}>) {
       const findProduct = state.products.find(
-        obj => obj.id === action.payload.id && obj.aroma.name === action.payload.aroma
+        obj => obj.id === action.payload.id 
       );
       if (findProduct) {
-        findProduct.aroma.count++;
+        findProduct.count++;
         state.totalPrice = calcTotalPrice(state.products);
       }
     },
-    minusProduct(state, action: PayloadAction<{id: string, aroma: string}>) {
+    minusProduct(state, action: PayloadAction<{id: string}>) {
       const findProduct = state.products.find(
-        obj => obj.id === action.payload.id && obj.aroma.name === action.payload.aroma
+        obj => obj.id === action.payload.id 
       );
       if (findProduct) {
-        findProduct.aroma.count--;
+        findProduct.count--;
         state.totalPrice = calcTotalPrice(state.products);
       }
     },
-    removeProduct(state, action: PayloadAction<{id: string, aroma: string}>) {
+    removeProduct(state, action: PayloadAction<{id: string}>) {
 
-      state.products = state.products.filter(obj => obj.id !== action.payload.id || obj.aroma.name !== action.payload.aroma);
+      state.products = state.products.filter(obj => obj.id !== action.payload.id );
 
       state.totalPrice = calcTotalPrice(state.products);
     },

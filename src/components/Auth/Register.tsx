@@ -7,7 +7,7 @@ import {
   LoginFormSchema,
   RegisterFormSchema,
 } from "../utils/schemas/formsValidation";
-import FormField from "../FormField";
+import FormField from "../FormFields/FormField";
 import styles from "./AuthPopup.module.scss";
 import { CreateUserDto } from "../../services/api/types";
 

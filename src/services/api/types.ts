@@ -9,14 +9,6 @@ export type CreateUserDto = {
   fullName: string;
 } & LoginDto;
 
-export type CreateProductDto = {
-  title: string;
-  description: string;
-  volume: string;
-  price: string;
-  group: string;
-  top: boolean
-}
 
 export type ResponseUser = {
   createdAt: string;

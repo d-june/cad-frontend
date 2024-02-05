@@ -1,11 +1,12 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
-import { NavItem } from "@/app/types/types";
-
-import MenuIcon from "@mui/icons-material/Menu";
-import { Ultra } from "next/font/google";
 import Link from "next/link";
 import { Navigation } from "../Navigation";
 
@@ -48,6 +49,49 @@ const navigationFull = [
 
 const BurgerMenu: FC = () => {
   const [visible, setVisible] = useState(false);
+  const [pageHeight, setPageHeight] = useState(
+    typeof window !== "undefined" && window.innerHeight - 90
+  );
+
+  const onResizePage = () => {
+    if (typeof window !== "undefined") {
+      setPageHeight(window.innerHeight - 120);
+      if (window.innerWidth < 900) {
+        setPageHeight(window.innerHeight - 90);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", onResizePage);
+      return () => {
+        window.removeEventListener("resize", onResizePage);
+      };
+    }
+  }, [typeof window !== "undefined" && window.innerHeight]);
+
+  useEffect(() => {
+    return () => {
+      clearAllBodyScrollLocks();
+    };
+  }, []);
+
+  const handleClickBurgerToggle = (e: any) => {
+    if (visible === true) {
+      setVisible(false);
+      enableBodyScroll(e.target);
+    } else {
+      setVisible(true);
+      disableBodyScroll(e.target);
+    }
+  };
+
+  const handleCloseMenu = () => {
+    setVisible(false);
+    clearAllBodyScrollLocks();
+  };
+
   return (
     <div className={styles.burgerMenu}>
       <div
@@ -56,7 +100,7 @@ const BurgerMenu: FC = () => {
             ? styles.burgerBtn + " " + styles.sidebarOpen
             : styles.burgerBtn
         }
-        onClick={() => setVisible(!visible)}
+        onClick={handleClickBurgerToggle}
       >
         <span></span>
       </div>
@@ -67,11 +111,9 @@ const BurgerMenu: FC = () => {
             ? styles.burgerNavigation + " " + styles.burgerNavigationVisible
             : styles.burgerNavigation
         }
+        style={{ height: pageHeight ? pageHeight : "100vh" }}
       >
-        <Navigation
-          navItems={navigationFull}
-          onClick={() => setVisible(false)}
-        />
+        <Navigation navItems={navigationFull} onClick={handleCloseMenu} />
         <Link href="tel:+79119400877" className={styles.burgerPhone}>
           <LocalPhoneIcon /> 8-911-940-08-77
         </Link>

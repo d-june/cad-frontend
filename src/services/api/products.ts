@@ -1,20 +1,43 @@
 
 import { AxiosInstance } from "axios";
-import { CreateProductDto } from "./types";
-import { AromaType } from "@/app/types/types";
+import { OrderType, ProductFormType } from "@/redux/slices/products/types";
+
+
 
 export const ProductsApi = (instance: AxiosInstance) => ({
-  async getAll() {
-    const { data } = await instance.get("/products");
+  async getAll(params?: any) {
+  
+    let queryString = []
+    if(params) {
+      for (const [key, value] of Object.entries(params)) {
+        if (value && value !== 1) {
+          queryString.push(`${key + '=' + params[key]}`)
+        }
+      
+      }
+    }
+
+    const { data } = await instance.get(`/products?${queryString && queryString.join('&')}&take=20`);
     return data;
   },
+
+  async getTopProducts() {
+    const { data } = await instance.get(`/products/top`);
+    return data;
+  },
+
   async getBySlug(slug: string) {
     const { data } = await instance.get(`/products/${slug}`);
     return data;
   },
+
   async createProductData(productInfo: any) {
-    
     const { data } = await instance.post("/products/new",  productInfo)
+    return data;
+  },
+
+  async updateAvailableCountById(id: string, available: number) {
+    const { data } = await instance.post(`/products/update-available/${id}`,  {available: available})
     return data;
   },
 
@@ -28,10 +51,10 @@ export const ProductsApi = (instance: AxiosInstance) => ({
         return data;
       },
 
-      async deleteImage(productId: string, filename: string) {
-        const { data } = await instance.delete(`/products/images/${productId}/${filename}`);
-        return data;
-      },
+  async deleteImage(productId: string, filename: string) {
+    const { data } = await instance.delete(`/products/images/${productId}/${filename}`);
+    return data;
+  },
 
   async createProduct  (productInfo: any)  {
     const data = await this.createProductData(productInfo).then(res => {
@@ -39,17 +62,20 @@ export const ProductsApi = (instance: AxiosInstance) => ({
     }) 
     return data
   },
-  async updateProduct(productInfo: CreateProductDto) {
+  async updateProduct(productInfo: ProductFormType) {
     const { data } = await instance.post("/products/update", productInfo);
     return data;
   },
   async deleteProduct(productId: string) {
+   
     const { data } = await instance.delete(`/products/${productId}`);
+
     return data;
   },
 
-  async sendOrder(name: string, phone: string, email: string, delivery: string, address: string, text: string, totalPrice: number) {
-    const { data } = await instance.get(`/products/send?name=${name}&phone=${phone}&email=${email}&delivery=${delivery}&address=${address}&text=${text}&totalPrice=${totalPrice}`);
+  async sendOrder(order: OrderType) {
+    
+    const { data } = await instance.get(`/products/send?name=${order.name}&phone=${order.phone}&email=${order.email}&delivery=${order.delivery}&address=${order.address}&text=${order.text}&totalPrice=${order.totalPrice}`);
     return data;
   },
 
@@ -58,10 +84,7 @@ export const ProductsApi = (instance: AxiosInstance) => ({
     return data;
   },
 
-  async updateAroma(aroma: AromaType) {
-    const { data } = await instance.post(`/products/aroma/update/${aroma.id}`, aroma);
-    return data;
-  },
+
 
   async deleteAroma(aromaId: number) {
     const { data } = await instance.delete(`/products/aroma/${aromaId}`);
@@ -72,13 +95,7 @@ export const ProductsApi = (instance: AxiosInstance) => ({
 
 
 
-export const getAllProducts = async ()=> {
-  return fetch("https://owa.cadhome.ru/api/products", {
-    next: {revalidate: 10}
-  }).then(res => res.json())
- 
 
-}
 
 export const getProductById = async (slug:string)=> {
   const response = await fetch(`https://owa.cadhome.ru/api/products/${slug}`);
